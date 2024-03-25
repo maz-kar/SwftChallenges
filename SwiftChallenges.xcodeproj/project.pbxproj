@@ -14,6 +14,7 @@
 		6B2869422BB1E3CA00CD4936 /* SwiftChallengesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2869412BB1E3CA00CD4936 /* SwiftChallengesTests.swift */; };
 		6B28694C2BB1E3CA00CD4936 /* SwiftChallengesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B28694B2BB1E3CA00CD4936 /* SwiftChallengesUITests.swift */; };
 		6B28694E2BB1E3CA00CD4936 /* SwiftChallengesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B28694D2BB1E3CA00CD4936 /* SwiftChallengesUITestsLaunchTests.swift */; };
+		6B28695B2BB1E46100CD4936 /* StringsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B28695A2BB1E46100CD4936 /* StringsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		6B2869472BB1E3CA00CD4936 /* SwiftChallengesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftChallengesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B28694B2BB1E3CA00CD4936 /* SwiftChallengesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftChallengesUITests.swift; sourceTree = "<group>"; };
 		6B28694D2BB1E3CA00CD4936 /* SwiftChallengesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftChallengesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6B28695A2BB1E46100CD4936 /* StringsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				6B2869302BB1E3C800CD4936 /* SwiftChallengesApp.swift */,
 				6B2869322BB1E3C800CD4936 /* ContentView.swift */,
+				6B28695A2BB1E46100CD4936 /* StringsView.swift */,
 				6B2869342BB1E3CA00CD4936 /* Assets.xcassets */,
 				6B2869362BB1E3CA00CD4936 /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 			files = (
 				6B2869332BB1E3C800CD4936 /* ContentView.swift in Sources */,
 				6B2869312BB1E3C800CD4936 /* SwiftChallengesApp.swift in Sources */,
+				6B28695B2BB1E46100CD4936 /* StringsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
