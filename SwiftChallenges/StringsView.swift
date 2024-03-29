@@ -25,6 +25,10 @@ class StringsViewModel: ObservableObject {
         return input.count == Set(input).count
     }
     
+    func isStrPalindrome(input: String) -> Bool {
+        return String(input.reversed()).lowercased() == input.lowercased()
+    }
+    
     
 }
 
@@ -36,6 +40,9 @@ struct StringsView: View {
             Text("areLettersUniqueA: \(vm.areLettersUniqueA(input: "AaBbCc").description)")
             
             Text("areLettersUniqueB: \(vm.areLettersUniqueB(input: "Hello World!").description)")
+            
+            Text("isStrPalindrome: \(vm.isStrPalindrome(input: "Rotator"))")
+
         }
     }
 }

@@ -16,18 +16,34 @@ final class StringsViewTests: XCTestCase {
         sut = StringsViewModel()
     }
     
-    func test_areLettersUniqueA_ShouldReturnTrue() {
+    func test_areLettersUniqueA_shouldReturnTrue() {
         let input = "AaBbCc"
         let result = sut.areLettersUniqueA(input: input)
         
         XCTAssertEqual(result, true)
     }
     
-    func test_areLettersUniqueB_ShouldReturnFalse() {
+    func test_areLettersUniqueB_shouldReturnFalse() {
         let input = "Hello World!"
         let result = sut.areLettersUniqueB(input: input)
         
         XCTAssertEqual(result, false)
     }
+    
+    func test_isStrPalindrome_shouldReturnTrue() {
+        let input = "Rotator"
+        let result = sut.isStrPalindrome(input: input)
+        
+        XCTAssertEqual(result, true)
+    }
+    
+    func test_isStrPalindrome_shouldReturnFalse() {
+        let input = "Potato"
+        let result = sut.isStrPalindrome(input: input)
+        
+        XCTAssertEqual(result, false)
+    }
+    
+    
 }
 
