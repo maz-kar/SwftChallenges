@@ -50,6 +50,12 @@ class StringsViewModel: ObservableObject {
         }
     }
     
+    func countAllLettersInString(str: String) -> [Character: Int] {
+        return str.reduce(into: [:]) { count, letter in
+            count[letter, default: 0] += 1
+        }
+    }
+    
     
 }
 
@@ -76,6 +82,7 @@ struct StringsView: View {
             Text("fuzzyContainsB: \("Hello World".fuzzyContainsB(str: "Goodbye").description)")
             Text("countTargetedCharA: \(vm.countTargetedCharA(str: "Mississippi", targetedLetter: "p"))")
             Text("countTargetedCharB: \(vm.countTargetedCharB(str: "Mississippi", targetedLetter: "s"))")
+            Text("countAllLettersInString: \(vm.countAllLettersInString(str: "Mississippi"))")
         }
     }
 }

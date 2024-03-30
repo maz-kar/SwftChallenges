@@ -90,6 +90,13 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, 0)
     }
     
+    func test_countAllLettersInString_shouldReturnADictOfLettersAndCounts() {
+        let sortedInput = String("Mississippi".sorted())
+        let result = sut.countAllLettersInString(str: sortedInput)
+        
+        XCTAssertEqual(result, ["i": 4, "M": 1, "p": 2, "s": 4])
+    }
+    
     
 }
 
