@@ -29,6 +29,9 @@ class StringsViewModel: ObservableObject {
         return String(input.reversed()).lowercased() == input.lowercased()
     }
     
+    func strsContainSameChar(strOne: String, strTwo: String) -> Bool { //a1 b2 ” and “b1 a2 -> true
+        return strOne.sorted() == strTwo.sorted()
+    }
     
 }
 
@@ -38,10 +41,9 @@ struct StringsView: View {
     var body: some View {
         VStack(spacing: 10) {
             Text("areLettersUniqueA: \(vm.areLettersUniqueA(input: "AaBbCc").description)")
-            
             Text("areLettersUniqueB: \(vm.areLettersUniqueB(input: "Hello World!").description)")
-            
             Text("isStrPalindrome: \(vm.isStrPalindrome(input: "Rotator"))")
+            Text("strsContainSameChar: \(vm.strsContainSameChar(strOne: "a1 b2", strTwo: "b1 a2"))")
 
         }
     }

@@ -44,6 +44,24 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, false)
     }
     
+    func test_strsContainSameChar_shouldReturnTrue() {
+        let strOne = "a1 b2"
+        let strTwo = "b1 a2"
+        let result = sut.strsContainSameChar(strOne: strOne, strTwo: strTwo)
+        
+        XCTAssertEqual(result, true)
+    }
+    
+    func test_strsContainSameChar_shouldReturnFalse() {
+        let strOne = "abc"
+        let strTwo = "Abc"
+        let result = sut.strsContainSameChar(strOne: strOne, strTwo: strTwo)
+        
+        XCTAssertEqual(result, false)
+    }
+    
+    
+    
     
 }
 
