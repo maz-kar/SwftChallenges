@@ -35,6 +35,16 @@ class StringsViewModel: ObservableObject {
     
 }
 
+extension String {
+    func fuzzyContainsA(str: String) -> Bool {
+        return self.uppercased().range(of: str.uppercased()) != nil
+    }
+    
+    func fuzzyContainsB(str: String) -> Bool {
+        return (self.range(of: str, options: .caseInsensitive) != nil)
+    }
+}
+
 struct StringsView: View {
     @StateObject private var vm = StringsViewModel()
     
@@ -44,6 +54,8 @@ struct StringsView: View {
             Text("areLettersUniqueB: \(vm.areLettersUniqueB(input: "Hello World!").description)")
             Text("isStrPalindrome: \(vm.isStrPalindrome(input: "Rotator"))")
             Text("strsContainSameChar: \(vm.strsContainSameChar(strOne: "a1 b2", strTwo: "b1 a2"))")
+            Text("fuzzyContainsA: \("Hello World".fuzzyContainsA(str: "Hello").description)")
+            Text("fuzzyContainsB: \("Hello World".fuzzyContainsB(str: "Goodbye").description)")
 
         }
     }

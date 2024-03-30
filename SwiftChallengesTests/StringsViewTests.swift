@@ -60,7 +60,23 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, false)
     }
     
+    func test_fuzzyContainsA_shouldReturnTrue() {
+        let str1 = "Hello World"
+        let str2 = "Hello"
+        
+        let result = str1.fuzzyContainsA(str: str2)
+        
+        XCTAssertEqual(result, true)
+    }
     
+    func test_fuzzyContainsB_shouldReturnTrue() {
+        let str1 = "Hello World"
+        let str2 = "Goodbye"
+        
+        let result = str1.fuzzyContainsB(str: str2)
+        
+        XCTAssertEqual(result, false)
+    }
     
     
 }
