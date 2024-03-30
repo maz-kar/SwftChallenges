@@ -78,6 +78,18 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, false)
     }
     
+    func test_countTargetedCharA_shouldReturnNumberOfOccurance() {
+        let result = sut.countTargetedCharA(str: "Mississippi", targetedLetter: "p")
+        
+        XCTAssertEqual(result, 2)
+    }
+    
+    func test_countTargetedCharB_shouldReturnNumberOfOccurance() {
+        let result = sut.countTargetedCharB(str: "Mississippi", targetedLetter: "q")
+        
+        XCTAssertEqual(result, 0)
+    }
+    
     
 }
 

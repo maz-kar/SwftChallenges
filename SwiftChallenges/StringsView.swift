@@ -9,7 +9,7 @@ import SwiftUI
 
 class StringsViewModel: ObservableObject {
     
-    func areLettersUniqueA(input: String) -> Bool { //AaBbCc -> true, Hello, world -> false
+    func areLettersUniqueA(input: String) -> Bool {
         var usedLetters: [Character] = []
         
         for char in input {
@@ -29,9 +29,27 @@ class StringsViewModel: ObservableObject {
         return String(input.reversed()).lowercased() == input.lowercased()
     }
     
-    func strsContainSameChar(strOne: String, strTwo: String) -> Bool { //a1 b2 ” and “b1 a2 -> true
+    func strsContainSameChar(strOne: String, strTwo: String) -> Bool {
         return strOne.sorted() == strTwo.sorted()
     }
+    
+    func countTargetedCharA(str: String, targetedLetter: Character) -> Int {
+        var result = 0
+        
+        for char in str {
+            if char == targetedLetter {
+                result += 1
+            }
+        }
+        return result
+    }
+    
+    func countTargetedCharB(str: String, targetedLetter: Character) -> Int {
+        return str.reduce(0) { count, letter in
+            letter == targetedLetter ? count + 1 : count
+        }
+    }
+    
     
 }
 
@@ -56,7 +74,8 @@ struct StringsView: View {
             Text("strsContainSameChar: \(vm.strsContainSameChar(strOne: "a1 b2", strTwo: "b1 a2"))")
             Text("fuzzyContainsA: \("Hello World".fuzzyContainsA(str: "Hello").description)")
             Text("fuzzyContainsB: \("Hello World".fuzzyContainsB(str: "Goodbye").description)")
-
+            Text("countTargetedCharA: \(vm.countTargetedCharA(str: "Mississippi", targetedLetter: "p"))")
+            Text("countTargetedCharB: \(vm.countTargetedCharB(str: "Mississippi", targetedLetter: "s"))")
         }
     }
 }
