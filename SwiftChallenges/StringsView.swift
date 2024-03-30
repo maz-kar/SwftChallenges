@@ -50,12 +50,16 @@ class StringsViewModel: ObservableObject {
         }
     }
     
+    func countTargetedCharWithReplacingOccurance(str: String, targetedLetter: Character) -> Int {
+        let modifiedStr = str.replacingOccurrences(of: String(targetedLetter), with: "")
+        return str.count - modifiedStr.count
+    }
+    
     func countAllLettersInString(str: String) -> [Character: Int] {
         return str.reduce(into: [:]) { count, letter in
             count[letter, default: 0] += 1
         }
     }
-    
     
 }
 
@@ -74,14 +78,15 @@ struct StringsView: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Text("areLettersUniqueWithForLoop: \(vm.areLettersUniqueWithForLoop(input: "AaBbCc").description)")
-            Text("areLettersUniqueWithSet: \(vm.areLettersUniqueWithSet(input: "Hello World!").description)")
+            Text("areLettersUniqueWithForLoop: \(vm.areLettersUniqueWithForLoop(input: "AaBbCc"))")
+            Text("areLettersUniqueWithSet: \(vm.areLettersUniqueWithSet(input: "Hello World!"))")
             Text("isStrPalindrome: \(vm.isStrPalindrome(input: "Rotator"))")
             Text("strsContainSameChar: \(vm.strsContainSameChar(strOne: "a1 b2", strTwo: "b1 a2"))")
             Text("fuzzyContainsA: \("Hello World".fuzzyContainsA(str: "Hello").description)")
             Text("fuzzyContainsB: \("Hello World".fuzzyContainsB(str: "Goodbye").description)")
             Text("countTargetedCharWithForLoop: \(vm.countTargetedCharWithForLoop(str: "Mississippi", targetedLetter: "p"))")
             Text("countTargetedCharWithReduce: \(vm.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "s"))")
+            Text("countTargetedCharWithReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippi", targetedLetter: "M"))")
             Text("countAllLettersInString: \(vm.countAllLettersInString(str: "Mississippi"))")
         }
     }

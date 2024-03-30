@@ -23,6 +23,13 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, true)
     }
     
+    func test_areLettersUniqueWithForLoop_shouldReturnFalse() {
+        let input = "aabcd"
+        let result = sut.areLettersUniqueWithForLoop(input: input)
+        
+        XCTAssertEqual(result, false)
+    }
+    
     func test_areLettersUniqueWithSet_shouldReturnFalse() {
         let input = "Hello World!"
         let result = sut.areLettersUniqueWithSet(input: input)
@@ -88,6 +95,12 @@ final class StringsViewTests: XCTestCase {
         let result = sut.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "q")
         
         XCTAssertEqual(result, 0)
+    }
+    
+    func test_countTargetedCharWithReplacingOccurance_shouldReturnNumberOfOccurance() {
+        let result = sut.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "M")
+        
+        XCTAssertEqual(result, 1)
     }
     
     func test_countAllLettersInString_shouldReturnADictOfLettersAndCounts() {
