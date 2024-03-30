@@ -16,16 +16,16 @@ final class StringsViewTests: XCTestCase {
         sut = StringsViewModel()
     }
     
-    func test_areLettersUniqueA_shouldReturnTrue() {
+    func test_areLettersUniqueWithForLoop_shouldReturnTrue() {
         let input = "AaBbCc"
-        let result = sut.areLettersUniqueA(input: input)
+        let result = sut.areLettersUniqueWithForLoop(input: input)
         
         XCTAssertEqual(result, true)
     }
     
-    func test_areLettersUniqueB_shouldReturnFalse() {
+    func test_areLettersUniqueWithSet_shouldReturnFalse() {
         let input = "Hello World!"
-        let result = sut.areLettersUniqueB(input: input)
+        let result = sut.areLettersUniqueWithSet(input: input)
         
         XCTAssertEqual(result, false)
     }
@@ -78,14 +78,14 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, false)
     }
     
-    func test_countTargetedCharA_shouldReturnNumberOfOccurance() {
-        let result = sut.countTargetedCharA(str: "Mississippi", targetedLetter: "p")
+    func test_countTargetedCharWithForLoop_shouldReturnNumberOfOccurance() {
+        let result = sut.countTargetedCharWithForLoop(str: "Mississippi", targetedLetter: "p")
         
         XCTAssertEqual(result, 2)
     }
     
-    func test_countTargetedCharB_shouldReturnNumberOfOccurance() {
-        let result = sut.countTargetedCharB(str: "Mississippi", targetedLetter: "q")
+    func test_countTargetedCharWithReduce_shouldReturnNumberOfOccurance() {
+        let result = sut.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "q")
         
         XCTAssertEqual(result, 0)
     }
