@@ -133,6 +133,20 @@ final class StringsViewTests: XCTestCase {
         
     }
     
+    func test_stringRotated_shouldReturnTrue() {
+        let input = "abcde"
+        let result = sut.stringRotated(str: input, rotatedStr: "cdeab")
+        
+        XCTAssertTrue(result)
+    }
+    
+    func test_stringRotated_shouldReturnFalse() {
+        let input = "abcde"
+        let result = sut.stringRotated(str: input, rotatedStr: "edab")
+        
+        XCTAssertFalse(result)
+    }
+    
     
 }
 

@@ -91,6 +91,12 @@ class StringsViewModel: ObservableObject {
         return result
     }
     
+    func stringRotated(str: String, rotatedStr: String) -> Bool {
+        guard str.count == rotatedStr.count else { return false }
+        let combined = str + str
+        return combined.contains(rotatedStr)
+    }
+    
 }
 
 extension String {
@@ -121,6 +127,7 @@ struct StringsView: View {
             Text("removeDuplicateLettersWithUpdateValue: \(vm.removeDuplicateLettersWithFilterAndUpdateValue(input: "Hello"))")
             Text("condenseWhitespaceWithRegularExpression: \(vm.condenseWhitespaceWithRegularExpression(input: "   a   b    c"))")
             Text("condenseWhitespaceWithForLoop: \(vm.condenseWhitespaceWithForLoop(input: "   a   b    c"))")
+            Text("stringRotated: \(vm.stringRotated(str: "abcde", rotatedStr: "deabc"))")
         }
     }
 }
