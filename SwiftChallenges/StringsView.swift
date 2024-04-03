@@ -61,6 +61,36 @@ class StringsViewModel: ObservableObject {
         }
     }
     
+    func removeDuplicateLettersWithFilterAndUpdateValue(input: String) -> String {
+        var used = [Character: Bool]()
+        
+        let result = input.filter {
+            used.updateValue(true, forKey: $0) == nil //nil means the char was not in the dict before but it is now.
+        }
+        
+        return result
+    }
+    
+    func condenseWhitespaceWithRegularExpression(input: String) -> String { //“a[space][space][space]b[space][space][space]c” should return “a[space]b[space]c”.
+        return input.replacingOccurrences(of: " +", with: " ", options: .regularExpression, range: nil)
+    }
+    
+    func condenseWhitespaceWithForLoop(input: String) -> String {
+        var seenSpace = false
+        var result = ""
+        
+        for letter in input {
+            if String(letter) == " " {
+                if seenSpace { continue } //continue to the next letter
+                seenSpace = true
+            } else {
+                seenSpace = false
+            }
+            result.append(letter)
+        }
+        return result
+    }
+    
 }
 
 extension String {
@@ -88,6 +118,9 @@ struct StringsView: View {
             Text("countTargetedCharWithReduce: \(vm.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "s"))")
             Text("countTargetedCharWithReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippi", targetedLetter: "M"))")
             Text("countAllLettersInString: \(vm.countAllLettersInString(str: "Mississippi"))")
+            Text("removeDuplicateLettersWithUpdateValue: \(vm.removeDuplicateLettersWithFilterAndUpdateValue(input: "Hello"))")
+            Text("condenseWhitespaceWithRegularExpression: \(vm.condenseWhitespaceWithRegularExpression(input: "   a   b    c"))")
+            Text("condenseWhitespaceWithForLoop: \(vm.condenseWhitespaceWithForLoop(input: "   a   b    c"))")
         }
     }
 }

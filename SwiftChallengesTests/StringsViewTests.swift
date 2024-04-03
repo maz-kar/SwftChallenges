@@ -110,6 +110,29 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, ["i": 4, "M": 1, "p": 2, "s": 4])
     }
     
+    func test_removeDuplicateLettersWithFilterAndUpdateValue_shouldReturnStringWithoutDiplication() {
+        let input = "Hello"
+        let result = sut.removeDuplicateLettersWithFilterAndUpdateValue(input: input)
+        
+        XCTAssertEqual(result, "Helo")
+    }
+    
+    func test_condenseWhitespaceWithRegularExpression_shoultReturnOneWhitespace() {
+        let input = "   a   b    c"
+        let result = sut.condenseWhitespaceWithRegularExpression(input: input)
+        
+        XCTAssertEqual(result, " a b c")
+        
+    }
+    
+    func test_condenseWhitespaceWithForLoop_shoultReturnOneWhitespace() {
+        let input = "   a   b    c"
+        let result = sut.condenseWhitespaceWithForLoop(input: input)
+        
+        XCTAssertEqual(result, " a b c")
+        
+    }
+    
     
 }
 
