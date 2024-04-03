@@ -147,6 +147,19 @@ final class StringsViewTests: XCTestCase {
         XCTAssertFalse(result)
     }
     
+    func test_findPangrams_shouldReturnTrue() {
+        let input = "The quick brown fox jumps over the lazy dog"
+        let result = sut.findPangrams(str: input)
+        
+        XCTAssertTrue(result)
+    }
+    
+    func test_findPangrams_shouldReturnFalse() {
+        let input = "The quick brown fox jumped over the lazy dog"
+        let result = sut.findPangrams(str: input)
+        
+        XCTAssertFalse(result)
+    }
     
 }
 

@@ -97,6 +97,12 @@ class StringsViewModel: ObservableObject {
         return combined.contains(rotatedStr)
     }
     
+    func findPangrams(str: String) -> Bool {
+        let modifiedStr = Set(str.lowercased())
+        let result = modifiedStr.filter { $0 >= "a" && $0 <= "z" }
+        return result.count == 26
+    }
+    
 }
 
 extension String {
@@ -128,6 +134,7 @@ struct StringsView: View {
             Text("condenseWhitespaceWithRegularExpression: \(vm.condenseWhitespaceWithRegularExpression(input: "   a   b    c"))")
             Text("condenseWhitespaceWithForLoop: \(vm.condenseWhitespaceWithForLoop(input: "   a   b    c"))")
             Text("stringRotated: \(vm.stringRotated(str: "abcde", rotatedStr: "deabc"))")
+            Text("findPangrams: \(vm.findPangrams(str: "The quick brown fox jumps over the lazy dog"))")
         }
     }
 }
