@@ -161,5 +161,13 @@ final class StringsViewTests: XCTestCase {
         XCTAssertFalse(result)
     }
     
+//    func test_vowelsAndConsonantsWithForLoop_shouldReturnTupleOfCounts() {
+//        let input = "Mississippi"
+//        let result = sut.vowelsAndConsonantsWithForLoop(input: input)
+//
+//        XCTAssert
+//    }
+    
+    
 }
 

@@ -103,7 +103,7 @@ class StringsViewModel: ObservableObject {
         return result.count == 26
     }
     
-    func vowelsAndConsonantsA(input: String) -> (vowels: Int, consonants: Int) { //Mississippi
+    func vowelsAndConsonantsWithForLoop(input: String) -> (vowels: Int, consonants: Int) {
         let vowels = ["a","e","i","o","u"]
         var vowelsCount = 0
         let consonants = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","u","v","w","x","y","z"]
@@ -112,6 +112,24 @@ class StringsViewModel: ObservableObject {
             if vowels.contains(String(char)) {
                 vowelsCount += 1
             } else if consonants.contains(String(char)) {
+                consonantsCount += 1
+            }
+        }
+        return (vowelsCount, consonantsCount)
+    }
+    
+    func vowelsAndConsonantsWithCharacterSet(input: String) -> (vowels: Int, consonants: Int) {
+        let vowels = CharacterSet(charactersIn: "aeiou")
+        let consonants = CharacterSet(charactersIn: "bcdfghjklmnpqrstuvwxyz")
+        
+        var vowelsCount = 0
+        var consonantsCount = 0
+        
+        for letter in input.lowercased() {
+            let stringLetter = String(letter)
+            if stringLetter.rangeOfCharacter(from: vowels) != nil {
+                vowelsCount += 1
+            } else if stringLetter.rangeOfCharacter(from: consonants) != nil {
                 consonantsCount += 1
             }
         }
@@ -152,7 +170,8 @@ struct StringsView: View {
             Text("condenseWhitespaceWithForLoop: \(vm.condenseWhitespaceWithForLoop(input: "   a   b    c"))")
             Text("stringRotated: \(vm.stringRotated(str: "abcde", rotatedStr: "deabc"))")
             Text("findPangrams: \(vm.findPangrams(str: "The quick brown fox jumps over the lazy dog"))")
-            Text("vowelsAndConsonants: \(vm.vowelsAndConsonantsA(input: "Mississippi"))")
+            Text("vowelsAndConsonants: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))")
+            Text("vowelsAndConsonants: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))")
         }
     }
 }
