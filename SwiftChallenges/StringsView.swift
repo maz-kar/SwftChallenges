@@ -103,6 +103,23 @@ class StringsViewModel: ObservableObject {
         return result.count == 26
     }
     
+    func vowelsAndConsonantsA(input: String) -> (vowels: Int, consonants: Int) { //Mississippi
+        let vowels = ["a","e","i","o","u"]
+        var vowelsCount = 0
+        let consonants = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","u","v","w","x","y","z"]
+        var consonantsCount = 0
+        for char in input.lowercased() {
+            if vowels.contains(String(char)) {
+                vowelsCount += 1
+            } else if consonants.contains(String(char)) {
+                consonantsCount += 1
+            }
+        }
+        return (vowelsCount, consonantsCount)
+    }
+    
+    
+    
 }
 
 extension String {
@@ -135,6 +152,7 @@ struct StringsView: View {
             Text("condenseWhitespaceWithForLoop: \(vm.condenseWhitespaceWithForLoop(input: "   a   b    c"))")
             Text("stringRotated: \(vm.stringRotated(str: "abcde", rotatedStr: "deabc"))")
             Text("findPangrams: \(vm.findPangrams(str: "The quick brown fox jumps over the lazy dog"))")
+            Text("vowelsAndConsonants: \(vm.vowelsAndConsonantsA(input: "Mississippi"))")
         }
     }
 }
