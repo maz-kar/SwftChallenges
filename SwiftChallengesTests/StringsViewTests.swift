@@ -195,6 +195,14 @@ final class StringsViewTests: XCTestCase {
         XCTAssertFalse(result)
     }
     
+    func test_threeDifferentLetters_givenUnequalStrings_shouldReturnFalse() {
+        let strOne = "Clamp"
+        let strTwo = "clam"
+        
+        let result = sut.threeDifferentLetters(strOne: strOne, strTwo: strTwo)
+        XCTAssertFalse(result)
+    }
+    
     
     
     

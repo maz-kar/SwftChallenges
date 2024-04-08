@@ -153,6 +153,12 @@ class StringsViewModel: ObservableObject {
         return countDifferences > 3 ? false : true
     }
     
+    //TODO: Complete it
+    func longestPrefix(str: String) {
+        let separatedStrings = str.components(separatedBy: " ")
+        print("SeparatedStrings: \(separatedStrings)")
+    }
+    
 }
 
 extension String {
@@ -188,6 +194,7 @@ struct StringsView: View {
             Text("vowels&ConsonantsWithForLoop: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))")
             Text("vowels&ConsonantsWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))")
             Text("threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))")
+            Text("longestPrefix: \(vm.longestPrefix(str: "flip flap flop"))")
         }
     }
 }
