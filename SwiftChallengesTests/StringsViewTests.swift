@@ -179,6 +179,22 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual((consonantsResult), 0)
     }
     
+    func test_threeDifferentLetters_shouldReturnTrue() {
+        let strOne = "Clamp"
+        let strTwo = "grams"
+        
+        let result = sut.threeDifferentLetters(strOne: strOne, strTwo: strTwo)
+        XCTAssertTrue(result)
+    }
+    
+    func test_threeDifferentLetters_shouldReturnFalse() {
+        let strOne = "Clamp"
+        let strTwo = "maple"
+        
+        let result = sut.threeDifferentLetters(strOne: strOne, strTwo: strTwo)
+        XCTAssertFalse(result)
+    }
+    
     
     
     

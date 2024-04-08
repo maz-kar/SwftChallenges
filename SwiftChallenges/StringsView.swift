@@ -139,13 +139,12 @@ class StringsViewModel: ObservableObject {
     }
     
     func threeDifferentLetters(strOne: String, strTwo: String) -> Bool {
-        var arrStrOne = Array(strOne)
-        var arrStrTwo = Array(strTwo)
+        let arrStrOne = Array(strOne.lowercased())
+        let arrStrTwo = Array(strTwo.lowercased())
         
         var countDifferences = 0
         
         guard arrStrOne.count == arrStrTwo.count else { return false }
-        //clamp  -- maple
         for (index, letter) in arrStrOne.enumerated() {
             if arrStrTwo[index] != letter {
                 countDifferences += 1
