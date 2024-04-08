@@ -138,7 +138,21 @@ class StringsViewModel: ObservableObject {
         return (vowelsCount, consonantsCount)
     }
     
-    
+    func threeDifferentLetters(strOne: String, strTwo: String) -> Bool {
+        var arrStrOne = Array(strOne)
+        var arrStrTwo = Array(strTwo)
+        
+        var countDifferences = 0
+        
+        guard arrStrOne.count == arrStrTwo.count else { return false }
+        //clamp  -- maple
+        for (index, letter) in arrStrOne.enumerated() {
+            if arrStrTwo[index] != letter {
+                countDifferences += 1
+            }
+        }
+        return countDifferences > 3 ? false : true
+    }
     
 }
 
@@ -174,6 +188,7 @@ struct StringsView: View {
             Text("findPangrams: \(vm.findPangrams(str: "The quick brown fox jumps over the lazy dog"))")
             Text("vowels&ConsonantsWithForLoop: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))")
             Text("vowels&ConsonantsWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))")
+            Text("threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))")
         }
     }
 }
