@@ -153,10 +153,25 @@ class StringsViewModel: ObservableObject {
         return countDifferences > 3 ? false : true
     }
     
-    //TODO: Complete it
-    func longestPrefix(str: String) {
-        let separatedStrings = str.components(separatedBy: " ")
-        print("SeparatedStrings: \(separatedStrings)")
+    //TODO: write its tests
+    func longestPrefix(input: String) -> String {
+        let parts = input.components(separatedBy: " ")
+        guard let part = parts.first else { return "" }
+        
+        var currentPrefix = ""
+        var bestPrefix = ""
+        
+        for letter in part {
+            currentPrefix.append(letter)
+            
+            for word in parts {
+                if !word.hasPrefix(currentPrefix) {
+                    return bestPrefix
+                }
+            }
+            bestPrefix = currentPrefix
+        }
+        return bestPrefix
     }
     
 }
@@ -194,7 +209,7 @@ struct StringsView: View {
             Text("vowels&ConsonantsWithForLoop: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))")
             Text("vowels&ConsonantsWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))")
             Text("threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))")
-            Text("longestPrefix: \(vm.longestPrefix(str: "flip flap flop"))")
+            Text("longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))")
         }
     }
 }
