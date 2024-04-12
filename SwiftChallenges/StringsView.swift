@@ -153,17 +153,14 @@ class StringsViewModel: ObservableObject {
         return countDifferences > 3 ? false : true
     }
     
-    //TODO: write its tests
     func longestPrefix(input: String) -> String {
         let parts = input.components(separatedBy: " ")
-        guard let part = parts.first else { return "" }
-        
+        guard let firstPart = parts.first else { return "" }
         var currentPrefix = ""
         var bestPrefix = ""
         
-        for letter in part {
+        for letter in firstPart {
             currentPrefix.append(letter)
-            
             for word in parts {
                 if !word.hasPrefix(currentPrefix) {
                     return bestPrefix
@@ -173,7 +170,6 @@ class StringsViewModel: ObservableObject {
         }
         return bestPrefix
     }
-    
 }
 
 extension String {

@@ -203,10 +203,12 @@ final class StringsViewTests: XCTestCase {
         XCTAssertFalse(result)
     }
     
-    
-    
-    
-    
+    func test_longestPrefix_shouldReturnCommonPrefix() {
+        let input = "flip flop flap"
+        let result = sut.longestPrefix(input: input)
+        
+        XCTAssertEqual(result, "fl")
+    }
     
 }
 
