@@ -210,5 +210,14 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, "fl")
     }
     
+    func test_longestPrefix_givenSameInput_shouldReturnWholeInput() {
+        let input = "flip flip"
+        let result = sut.longestPrefix(input: input)
+        
+        XCTAssertEqual(result, "flip")
+    }
+    
+    //TODO: add a test for the guard
+    
 }
 
