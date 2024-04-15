@@ -45,7 +45,7 @@ class StringsViewModel: ObservableObject {
     }
     
     func countTargetedCharWithReduce(str: String, targetedLetter: Character) -> Int {
-        return str.reduce(0) { count, letter in
+        return str.reduce(0) { count, letter in //initialResult will be passed to nextPartialResult for the 1st time closure is executed
             letter == targetedLetter ? count + 1 : count
         }
     }
@@ -56,7 +56,7 @@ class StringsViewModel: ObservableObject {
     }
     
     func countAllLettersInString(str: String) -> [Character: Int] {
-        return str.reduce(into: [:]) { count, letter in
+        return str.reduce(into: [:]) { count, letter in //Closure will loop through the str until the last letter
             count[letter, default: 0] += 1
         }
     }

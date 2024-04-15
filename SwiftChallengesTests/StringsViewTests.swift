@@ -217,7 +217,5 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, "flip")
     }
     
-    //TODO: add a test for the guard
-    
 }
 
