@@ -65,13 +65,13 @@ class StringsViewModel: ObservableObject {
         var used = [Character: Bool]()
         
         let result = input.filter {
-            used.updateValue(true, forKey: $0) == nil //nil means the char was not in the dict before but it is now.
+            used.updateValue(true, forKey: $0) == nil //so complex to be used here
         }
         
         return result
     }
     
-    func condenseWhitespaceWithRegularExpression(input: String) -> String { //“a[space][space][space]b[space][space][space]c” should return “a[space]b[space]c”.
+    func condenseWhitespaceWithRegularExpression(input: String) -> String { //“a[space][space][space]b[space][space][space]c” --> “a[space]b[space]c”.
         return input.replacingOccurrences(of: " +", with: " ", options: .regularExpression, range: nil)
     }
     
@@ -79,7 +79,7 @@ class StringsViewModel: ObservableObject {
         var seenSpace = false
         var result = ""
         
-        for letter in input {
+        for letter in input { //“a[space][space][space]b[space][space][space]c”
             if String(letter) == " " {
                 if seenSpace { continue } //continue to the next letter
                 seenSpace = true
@@ -90,11 +90,11 @@ class StringsViewModel: ObservableObject {
         }
         return result
     }
-    
-    func stringRotated(str: String, rotatedStr: String) -> Bool {
+
+    func stringRotated(str: String, rotatedStr: String) -> Bool { //abcde & deabc -> true
         guard str.count == rotatedStr.count else { return false }
-        let combined = str + str
-        return combined.contains(rotatedStr)
+        let combined = str + str //abcdeabcde
+        return combined.range(of: rotatedStr) != nil //or use contain
     }
     
     func findPangrams(str: String) -> Bool {
