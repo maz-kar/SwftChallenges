@@ -90,7 +90,7 @@ class StringsViewModel: ObservableObject {
         }
         return result
     }
-
+    
     func stringRotated(str: String, rotatedStr: String) -> Bool { //abcde & deabc -> true
         guard str.count == rotatedStr.count else { return false }
         let combined = str + str //abcdeabcde
@@ -103,7 +103,7 @@ class StringsViewModel: ObservableObject {
         return result.count == 26
     }
     
-    func vowelsAndConsonantsWithForLoop(input: String) -> (vowels: Int, consonants: Int) {
+    func vowelsAndConsonantsWithForLoop(input: String) -> (vowels: Int, consonants: Int) { //TODO: note this kinda return type
         let vowels = "aeiou"
         let consonants = "bcdfghjklmnpqrstuvwxyz"
         
@@ -129,7 +129,7 @@ class StringsViewModel: ObservableObject {
         
         for letter in input.lowercased() {
             let stringLetter = String(letter)
-            if stringLetter.rangeOfCharacter(from: vowels) != nil {
+            if stringLetter.rangeOfCharacter(from: vowels) != nil { //TODO: Add this rangeOfCharacter to HACKS
                 vowelsCount += 1
             } else if stringLetter.rangeOfCharacter(from: consonants) != nil {
                 consonantsCount += 1
@@ -170,6 +170,42 @@ class StringsViewModel: ObservableObject {
         }
         return bestPrefix
     }
+    
+    //TODO:
+    
+    func countVowelsAndConsonants(input: String) -> (vowels: Int, consonants: Int) {
+        let vowels = ("aeiou")
+        let consonants = ("bcdfghjklmnpqrstvwxyz")
+        var vowelsResult = 0
+        var consonantResult = 0
+        
+        for letter in input.lowercased() {
+            if vowels.contains(letter) {
+                vowelsResult += 1
+            } else if consonants.range(of: String(letter)) != nil {
+                consonantResult += 1
+            }
+        }
+        return (vowelsResult,consonantResult)
+    }
+    
+    func areLettersUnique(input: String) -> Bool { //ABCabc
+        let setInput = Set(input)
+        return setInput.count == input.count
+    }
+    
+    func isStrPalindr(input: String) -> Bool {
+        return input.lowercased() == String(input.lowercased().reversed())
+    }
+    
+    func strContSameChar(strOne: String, strTwo: String) -> Bool {
+        let sortedStrOne = strOne.sorted()
+        let sortedStrTwo = strTwo.sorted()
+        
+        return sortedStrOne == sortedStrTwo
+    }
+    
+    
 }
 
 extension String {
@@ -206,6 +242,7 @@ struct StringsView: View {
             Text("vowels&ConsonantsWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))")
             Text("threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))")
             Text("longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))")
+            Text("countVowelsAndConsonants: \(vm.countVowelsAndConsonants(input: "Mississippi"))")
         }
     }
 }
