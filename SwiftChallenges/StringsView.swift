@@ -71,20 +71,16 @@ class StringsViewModel: ObservableObject {
         return result
     }
     
-    func condenseWhitespaceWithRegularExpression(input: String) -> String { //“a    b   c” --> “a b c”.
+    func condenseWhitespaceWithRegularExpression(input: String) -> String { //“a    b   c” --> “a b c”
         return input.replacingOccurrences(of: " +", with: " ", options: .regularExpression, range: nil)
         //It seems that, this also works the same: return input.replacingOccurrences(of: " +", with: " ")
     }
     
-    func condenseMoreThanOneSpace(inp: String) -> String {
-        return inp.replacingOccurrences(of: " +", with: " ")
-    }
-    
-    func condenseWhitespaceWithForLoop(input: String) -> String {
+    func condenseWhitespaceWithForLoop(input: String) -> String { //TODO: Good practice for flag
         var seenSpace = false
         var result = ""
         
-        for letter in input { //“a[space][space][space]b[space][space][space]c”
+        for letter in input {
             if String(letter) == " " {
                 if seenSpace { continue } //continue to the next letter
                 seenSpace = true
@@ -99,10 +95,10 @@ class StringsViewModel: ObservableObject {
     func stringRotated(str: String, rotatedStr: String) -> Bool { //abcde & deabc -> true
         guard str.count == rotatedStr.count else { return false }
         let combined = str + str //abcdeabcde
-        return combined.range(of: rotatedStr) != nil //or use contain
+        return combined.range(of: rotatedStr) != nil //or use contain. if !=nil it means combine exist in the range of rotated. if == nil, means does not exist
     }
     
-    func findPangrams(str: String) -> Bool {
+    func findPangrams(str: String) -> Bool { //TODO: Good filter practice
         let modifiedStr = Set(str.lowercased())
         let result = modifiedStr.filter { $0 >= "a" && $0 <= "z" }
         return result.count == 26
@@ -200,7 +196,7 @@ extension String {
     }
     
     func fuzzyContainsB(str: String) -> Bool {
-        return (self.range(of: str, options: .caseInsensitive) != nil)
+        return (self.range(of: str, options: .caseInsensitive) != nil) //TODO: means A and a will be different for it?
     }
 }
 
