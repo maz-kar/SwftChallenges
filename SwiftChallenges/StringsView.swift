@@ -171,8 +171,6 @@ class StringsViewModel: ObservableObject {
         return bestPrefix
     }
     
-    //TODO:
-    
     func countVowelsAndConsonants(input: String) -> (vowels: Int, consonants: Int) {
         let vowels = ("aeiou")
         let consonants = ("bcdfghjklmnpqrstvwxyz")
@@ -188,23 +186,6 @@ class StringsViewModel: ObservableObject {
         }
         return (vowelsResult,consonantResult)
     }
-    
-    func areLettersUnique(input: String) -> Bool { //ABCabc
-        let setInput = Set(input)
-        return setInput.count == input.count
-    }
-    
-    func isStrPalindr(input: String) -> Bool {
-        return input.lowercased() == String(input.lowercased().reversed())
-    }
-    
-    func strContSameChar(strOne: String, strTwo: String) -> Bool {
-        let sortedStrOne = strOne.sorted()
-        let sortedStrTwo = strTwo.sorted()
-        
-        return sortedStrOne == sortedStrTwo
-    }
-    
     
 }
 
