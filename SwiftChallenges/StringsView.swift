@@ -44,14 +44,14 @@ class StringsViewModel: ObservableObject {
         return result
     }
     
-    func countTargetedCharWithReduce(str: String, targetedLetter: Character) -> Int {
-        return str.reduce(0) { count, letter in //initialResult will be passed to nextPartialResult for the 1st time closure is executed
+    func countTargetedCharWithReduce(str: String, targetedLetter: Character) -> Int { //TODO: find more reduce
+        return str.reduce(0) { count, letter in //initialResult will be passed to nextPartialResult for the 1st time closure is executed. Remember PartialResult means it can be changed, like the count which can be incremented.
             letter == targetedLetter ? count + 1 : count
         }
     }
     
-    func countTargetedCharWithReplacingOccurance(str: String, targetedLetter: Character) -> Int {
-        let modifiedStr = str.replacingOccurrences(of: String(targetedLetter), with: "")
+    func countTargetedCharWithReplacingOccurance(str: String, targetedLetter: String) -> Int { //TODO: find more replacingOccurrences
+        let modifiedStr = str.replacingOccurrences(of: targetedLetter, with: "")
         return str.count - modifiedStr.count
     }
     
