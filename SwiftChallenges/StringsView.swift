@@ -55,24 +55,29 @@ class StringsViewModel: ObservableObject {
         return str.count - modifiedStr.count
     }
     
-    func countAllLettersInString(str: String) -> [Character: Int] {
+    func countAllLettersInString(str: String) -> [Character: Int] { //TODO: This is the exp of documentation
         return str.reduce(into: [:]) { count, letter in //Closure will loop through the str until the last letter
             count[letter, default: 0] += 1
         }
     }
     
-    func removeDuplicateLettersWithFilterAndUpdateValue(input: String) -> String {
+    func removeDuplicateLettersWithFilterAndUpdateValue(input: String) -> String { //TODO: can also be easily done with set
         var used = [Character: Bool]()
-        
-        let result = input.filter {
-            used.updateValue(true, forKey: $0) == nil //so complex to be used here
+        //Hello
+        let result = input.filter { //This will return self or in this case string
+            used.updateValue(true, forKey: $0) == nil //This line checks if true,H is not in used / true,H in used is NIL, if so, returns true which means for the filter to keep the H. if case of 2nd l, true, l is !nil and then it returns false to filter which means not keeping the 2nd l.
         }
         
         return result
     }
     
-    func condenseWhitespaceWithRegularExpression(input: String) -> String { //“a[space][space][space]b[space][space][space]c” --> “a[space]b[space]c”.
+    func condenseWhitespaceWithRegularExpression(input: String) -> String { //“a    b   c” --> “a b c”.
         return input.replacingOccurrences(of: " +", with: " ", options: .regularExpression, range: nil)
+        //It seems that, this also works the same: return input.replacingOccurrences(of: " +", with: " ")
+    }
+    
+    func condenseMoreThanOneSpace(inp: String) -> String {
+        return inp.replacingOccurrences(of: " +", with: " ")
     }
     
     func condenseWhitespaceWithForLoop(input: String) -> String {
