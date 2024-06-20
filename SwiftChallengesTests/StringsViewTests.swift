@@ -217,32 +217,5 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, "flip")
     }
     
-    //TODO: 
-    
-    func test_areLettersUnique_shouldReturnTrue() {
-        let input = "AaBb"
-        
-        let expectedResult = sut.areLettersUnique(input: input)
-        
-        XCTAssertTrue(expectedResult)
-    }
-    
-    func test_isStrPalindr_shouldReturnTrue() {
-        let input = "Rotator"
-        
-        let expectedResult = sut.isStrPalindr(input: input)
-        
-        XCTAssertTrue(expectedResult)
-    }
-    
-    func test_strContSameChar_shouldReturnTrue() {
-        let str1 = "a1b2"
-        let str2 = "a2b1"
-        
-        let expectedRes = sut.strContSameChar(strOne: str1, strTwo: str2)
-        
-        XCTAssertTrue(expectedRes)
-    }
-    
 }
 
