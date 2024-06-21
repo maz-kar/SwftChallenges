@@ -8,15 +8,16 @@
 import SwiftUI
 
 class StringsViewModel: ObservableObject {
-    
     func areLettersUniqueWithForLoop(input: String) -> Bool {
         var usedLetters: [Character] = []
         
-        for char in input {
-            if usedLetters.contains(String(char)) {
+        for letter in input {
+            if !usedLetters.contains(letter) {
+                usedLetters.append(letter)
+            }
+            else {
                 return false
             }
-            usedLetters.append(char)
         }
         return true
     }
@@ -43,16 +44,18 @@ class StringsViewModel: ObservableObject {
         }
         return result
     }
-    
+        
     func countTargetedCharWithReduce(str: String, targetedLetter: Character) -> Int { //TODO: find more reduce
-        return str.reduce(0) { count, letter in //initialResult will be passed to nextPartialResult for the 1st time closure is executed. Remember PartialResult means it can be changed, like the count which can be incremented.
+        return str.reduce(0) { count, letter in 
+            //initialResult will be passed to nextPartialResult for the 1st time closure is executed. Remember PartialResult means it can be changed, like the count which can be incremented.
             letter == targetedLetter ? count + 1 : count
         }
     }
     
     func countTargetedCharWithReplacingOccurance(str: String, targetedLetter: String) -> Int { //TODO: find more replacingOccurrences
-        let modifiedStr = str.replacingOccurrences(of: targetedLetter, with: "")
-        return str.count - modifiedStr.count
+        let result = str.replacingOccurrences(of: targetedLetter, with: "", options: .caseInsensitive)
+        //replacingOccurrences will take targettedLetter out which later by count and subtraction can be our answer
+        return str.count - result.count
     }
     
     func countAllLettersInString(str: String) -> [Character: Int] { //TODO: This is the exp of documentation
@@ -61,6 +64,7 @@ class StringsViewModel: ObservableObject {
         }
     }
     
+    //TODO: start over
     func removeDuplicateLettersWithFilterAndUpdateValue(input: String) -> String { //TODO: can also be easily done with set
         var used = [Character: Bool]()
         //Hello
@@ -213,7 +217,7 @@ struct StringsView: View {
             Text("fuzzyContainsB: \("Hello World".fuzzyContainsB(str: "Goodbye").description)")
             Text("countTargetedCharWithForLoop: \(vm.countTargetedCharWithForLoop(str: "Mississippi", targetedLetter: "p"))")
             Text("countTargetedCharWithReduce: \(vm.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "s"))")
-            Text("countTargetedCharWithReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippi", targetedLetter: "M"))")
+            Text("countTargetedCharWithReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippim", targetedLetter: "M"))")
             Text("countAllLettersInString: \(vm.countAllLettersInString(str: "Mississippi"))")
             Text("removeDuplicateLettersWithUpdateValue: \(vm.removeDuplicateLettersWithFilterAndUpdateValue(input: "Hello"))")
             Text("condenseWhitespaceWithRegularExpression: \(vm.condenseWhitespaceWithRegularExpression(input: "   a   b    c"))")
