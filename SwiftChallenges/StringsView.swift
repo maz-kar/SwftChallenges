@@ -158,7 +158,7 @@ class StringsViewModel: ObservableObject {
         return countDifferences > 3 ? false : true
     }
     
-    func longestPrefix(input: String) -> String {
+    func longestPrefix(input: String) -> String { //TODO: challenging exp
         let parts = input.components(separatedBy: " ")
         guard let firstPart = parts.first else { return "" }
         var currentPrefix = ""
@@ -176,7 +176,7 @@ class StringsViewModel: ObservableObject {
         return bestPrefix
     }
     
-    func countVowelsAndConsonants(input: String) -> (vowels: Int, consonants: Int) {
+    func countVowelsAndConsonants(input: String) -> (vowels: Int, consonants: Int) { //TODO: Check return type
         let vowels = ("aeiou")
         let consonants = ("bcdfghjklmnpqrstvwxyz")
         var vowelsResult = 0
@@ -236,3 +236,5 @@ struct StringsView: View {
 #Preview {
     StringsView()
 }
+
+//TODO: Next ThreeDifferentLetters
