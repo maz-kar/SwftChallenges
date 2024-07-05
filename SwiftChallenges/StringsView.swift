@@ -224,11 +224,11 @@ struct StringsView: View {
             Text("condenseWhitespaceWithForLoop: \(vm.condenseWhitespaceWithForLoop(input: "   a   b    c"))")
             Text("stringRotated: \(vm.stringRotated(str: "abcde", rotatedStr: "deabc"))")
             Text("findPangrams: \(vm.findPangrams(str: "The quick brown fox jumps over the lazy dog"))")
-            Text("vowels&ConsonantsWithForLoop: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))")
-            Text("vowels&ConsonantsWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))")
+            Text("vow&ConsonWithForLoop: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))")
+            Text("vow&ConsonWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))")
             Text("threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))")
             Text("longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))")
-            Text("countVowelsAndConsonants: \(vm.countVowelsAndConsonants(input: "Mississippi"))")
+            Text("countVow&Conson: \(vm.countVowelsAndConsonants(input: "Mississippi"))")
         }
     }
 }
