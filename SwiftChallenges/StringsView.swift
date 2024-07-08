@@ -175,22 +175,6 @@ class StringsViewModel: ObservableObject {
         return bestPrefix
     }
     
-    func countVowelsAndConsonants(input: String) -> (vowels: Int, consonants: Int) { //MARK: Check return type
-        let vowels = ("aeiou")
-        let consonants = ("bcdfghjklmnpqrstvwxyz")
-        var vowelsResult = 0
-        var consonantResult = 0
-        
-        for letter in input.lowercased() {
-            if vowels.contains(letter) {
-                vowelsResult += 1
-            } else if consonants.range(of: String(letter)) != nil {
-                consonantResult += 1
-            }
-        }
-        return (vowelsResult,consonantResult)
-    }
-    
 }
 
 extension String {
@@ -227,7 +211,6 @@ struct StringsView: View {
             Text("vow&ConsonWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))")
             Text("threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))")
             Text("longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))")
-            Text("countVow&Conson: \(vm.countVowelsAndConsonants(input: "Mississippi"))")
         }
     }
 }
@@ -235,3 +218,5 @@ struct StringsView: View {
 #Preview {
     StringsView()
 }
+
+//TODO: findPangrams, stringRotated, condenseWhitespaceWithForLoop, condenseWhitespaceWithRegularExpression, removeDuplicateLettersWithFilterAndUpdateValue
