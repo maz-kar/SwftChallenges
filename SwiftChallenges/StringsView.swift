@@ -45,27 +45,26 @@ class StringsViewModel: ObservableObject {
         return result
     }
         
-    func countTargetedCharWithReduce(str: String, targetedLetter: Character) -> Int { //TODO: find more reduce
-        return str.reduce(0) { count, letter in 
+    func countTargetedCharWithReduce(str: String, targetedLetter: Character) -> Int { //MARK: find more reduce
+        return str.reduce(0) { count, letter in
             //initialResult will be passed to nextPartialResult for the 1st time closure is executed. Remember PartialResult means it can be changed, like the count which can be incremented.
             letter == targetedLetter ? count + 1 : count
         }
     }
     
-    func countTargetedCharWithReplacingOccurance(str: String, targetedLetter: String) -> Int { //TODO: find more replacingOccurrences
+    func countTargetedCharWithReplacingOccurance(str: String, targetedLetter: String) -> Int { //MARK: find more replacingOccurrences
         let result = str.replacingOccurrences(of: targetedLetter, with: "", options: .caseInsensitive)
         //replacingOccurrences will take targettedLetter out which later by count and subtraction can be our answer
         return str.count - result.count
     }
     
-    func countAllLettersInString(str: String) -> [Character: Int] { //TODO: This is the exp of documentation
+    func countAllLettersInString(str: String) -> [Character: Int] { //MARK: This is the exp of documentation
         return str.reduce(into: [:]) { count, letter in //Closure will loop through the str until the last letter
             count[letter, default: 0] += 1
         }
     }
     
-    //TODO: start over
-    func removeDuplicateLettersWithFilterAndUpdateValue(input: String) -> String { //TODO: can also be easily done with set
+    func removeDuplicateLettersWithFilterAndUpdateValue(input: String) -> String { //MARK: can also be easily done with set
         var used = [Character: Bool]()
         //Hello
         let result = input.filter { //This will return self or in this case string
@@ -80,7 +79,7 @@ class StringsViewModel: ObservableObject {
         //It seems that, this also works the same: return input.replacingOccurrences(of: " +", with: " ")
     }
     
-    func condenseWhitespaceWithForLoop(input: String) -> String { //TODO: Good practice for flag
+    func condenseWhitespaceWithForLoop(input: String) -> String { //MARK: Good practice for flag
         var seenSpace = false
         var result = ""
         
@@ -102,13 +101,13 @@ class StringsViewModel: ObservableObject {
         return combined.range(of: rotatedStr) != nil //or use contain. if !=nil it means combine exist in the range of rotated. if == nil, means does not exist
     }
     
-    func findPangrams(str: String) -> Bool { //TODO: Good filter practice
+    func findPangrams(str: String) -> Bool { //MARK: Good filter practice
         let modifiedStr = Set(str.lowercased())
         let result = modifiedStr.filter { $0 >= "a" && $0 <= "z" }
         return result.count == 26
     }
     
-    func vowelsAndConsonantsWithForLoop(input: String) -> (vowels: Int, consonants: Int) { //TODO: note this kinda return type
+    func vowelsAndConsonantsWithForLoop(input: String) -> (vowels: Int, consonants: Int) { //MARK: note this kinda return type
         let vowels = "aeiou"
         let consonants = "bcdfghjklmnpqrstuvwxyz"
         
@@ -134,7 +133,7 @@ class StringsViewModel: ObservableObject {
         
         for letter in input.lowercased() {
             let stringLetter = String(letter)
-            if stringLetter.rangeOfCharacter(from: vowels) != nil { //TODO: Add this rangeOfCharacter to HACKS
+            if stringLetter.rangeOfCharacter(from: vowels) != nil { //MARK: Add this rangeOfCharacter to HACKS
                 vowelsCount += 1
             } else if stringLetter.rangeOfCharacter(from: consonants) != nil {
                 consonantsCount += 1
@@ -143,8 +142,8 @@ class StringsViewModel: ObservableObject {
         return (vowelsCount, consonantsCount)
     }
     
-    func threeDifferentLetters(strOne: String, strTwo: String) -> Bool {
-        let arrStrOne = Array(strOne.lowercased())
+    func threeDifferentLetters(strOne: String, strTwo: String) -> Bool { //MARK: 1st check letter count of strings, then letter differences based on index
+        let arrStrOne = Array(strOne.lowercased()) //MARK: in order to use index, make them Array
         let arrStrTwo = Array(strTwo.lowercased())
         
         var countDifferences = 0
@@ -158,7 +157,7 @@ class StringsViewModel: ObservableObject {
         return countDifferences > 3 ? false : true
     }
     
-    func longestPrefix(input: String) -> String { //TODO: challenging exp
+    func longestPrefix(input: String) -> String { //MARK: challenging exp
         let parts = input.components(separatedBy: " ")
         guard let firstPart = parts.first else { return "" }
         var currentPrefix = ""
@@ -176,7 +175,7 @@ class StringsViewModel: ObservableObject {
         return bestPrefix
     }
     
-    func countVowelsAndConsonants(input: String) -> (vowels: Int, consonants: Int) { //TODO: Check return type
+    func countVowelsAndConsonants(input: String) -> (vowels: Int, consonants: Int) { //MARK: Check return type
         let vowels = ("aeiou")
         let consonants = ("bcdfghjklmnpqrstvwxyz")
         var vowelsResult = 0
@@ -200,7 +199,7 @@ extension String {
     }
     
     func fuzzyContainsB(str: String) -> Bool {
-        return (self.range(of: str, options: .caseInsensitive) != nil) //TODO: means A and a will be different for it?
+        return (self.range(of: str, options: .caseInsensitive) != nil) //MARK: means A and a will be different for it?
     }
 }
 
@@ -236,5 +235,3 @@ struct StringsView: View {
 #Preview {
     StringsView()
 }
-
-//TODO: Next ThreeDifferentLetters
