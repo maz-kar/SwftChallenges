@@ -64,6 +64,16 @@ class StringsViewModel: ObservableObject {
         }
     }
     
+    func removeDuplicateLetterForLoop(input: String) -> String {
+        var result = ""
+        for letter in input {
+            if !result.contains(letter.description) {
+                result.append(letter.description)
+            }
+        }
+        return result
+    }
+    
     func removeDuplicateLettersWithFilterAndUpdateValue(input: String) -> String { //MARK: can also be easily done with set
         var used = [Character: Bool]()
         //Hello
@@ -203,6 +213,7 @@ struct StringsView: View {
             Text("countTargetedCharWithReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippim", targetedLetter: "M"))")
             Text("countAllLettersInString: \(vm.countAllLettersInString(str: "Mississippi"))")
             Text("removeDuplicateLettersWithUpdateValue: \(vm.removeDuplicateLettersWithFilterAndUpdateValue(input: "Hello"))")
+            Text("removeDuplicateLetterForLoop: \(vm.removeDuplicateLetterForLoop(input: "apple"))")
             Text("condenseWhitespaceWithRegularExpression: \(vm.condenseWhitespaceWithRegularExpression(input: "   a   b    c"))")
             Text("condenseWhitespaceWithForLoop: \(vm.condenseWhitespaceWithForLoop(input: "   a   b    c"))")
             Text("stringRotated: \(vm.stringRotated(str: "abcde", rotatedStr: "deabc"))")
@@ -219,4 +230,4 @@ struct StringsView: View {
     StringsView()
 }
 
-//TODO: condenseWhitespaceWithForLoop, removeDuplicateLettersWithFilterAndUpdateValue
+//TODO: removeDuplicateLettersWithFilterAndUpdateValue
