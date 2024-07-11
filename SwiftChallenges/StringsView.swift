@@ -76,7 +76,7 @@ class StringsViewModel: ObservableObject {
     
     func condenseWhitespaceWithRegularExpression(input: String) -> String { //“a    b   c” --> “a b c”
         return input.replacingOccurrences(of: " +", with: " ", options: .regularExpression, range: nil)
-        //It seems that, this also works the same: return input.replacingOccurrences(of: " +", with: " ")
+        //It also works with:(of: " +", with: " ", options: .regularExpression)
     }
     
     func condenseWhitespaceWithForLoop(input: String) -> String { //MARK: Good practice for flag
@@ -219,4 +219,4 @@ struct StringsView: View {
     StringsView()
 }
 
-//TODO: findPangrams, stringRotated, condenseWhitespaceWithForLoop, condenseWhitespaceWithRegularExpression, removeDuplicateLettersWithFilterAndUpdateValue
+//TODO: condenseWhitespaceWithForLoop, removeDuplicateLettersWithFilterAndUpdateValue
