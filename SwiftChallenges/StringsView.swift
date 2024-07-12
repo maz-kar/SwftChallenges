@@ -185,6 +185,19 @@ class StringsViewModel: ObservableObject {
         return bestPrefix
     }
     
+    func runLengthEncoding() {
+        let input = "aaa"
+        let arrInput = Array(input)
+        let inputLetter = arrInput[0]
+        var letterCount = 0
+        
+        for letter in input {
+            letterCount += 1
+        }
+        print("\(inputLetter)" + "\(letterCount)")
+        //TODO: now working for aaa, think of aaab -> a3b1
+    }
+    
 }
 
 extension String {
@@ -222,6 +235,7 @@ struct StringsView: View {
             Text("vow&ConsonWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))")
             Text("threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))")
             Text("longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))")
+            Text("runLengthEncoding: \(vm.runLengthEncoding())")
         }
     }
 }
