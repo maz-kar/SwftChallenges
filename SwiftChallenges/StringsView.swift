@@ -185,6 +185,7 @@ class StringsViewModel: ObservableObject {
         return bestPrefix
     }
     
+    //Write a function that returns true if there exists at least one number that is larger than or equal to n.
     func existsHigher(arr: [Int], number: Int) -> Bool {
         arr.contains { $0 > number }
     }
