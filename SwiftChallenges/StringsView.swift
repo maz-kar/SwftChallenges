@@ -44,7 +44,7 @@ class StringsViewModel: ObservableObject {
         }
         return result
     }
-        
+    
     func countTargetedCharWithReduce(str: String, targetedLetter: Character) -> Int { //MARK: find more reduce
         return str.reduce(0) { count, letter in
             //initialResult will be passed to nextPartialResult for the 1st time closure is executed. Remember PartialResult means it can be changed, like the count which can be incremented.
@@ -191,6 +191,21 @@ class StringsViewModel: ObservableObject {
     }
     
     //Write a function that takes a string of one or more words as an argument and returns the same string, but with all five or more letter words reversed. Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+    func reverse(input: String) -> String {
+        let parts = input.components(separatedBy: " ")
+        var result = ""
+        
+        for part in parts {
+            if part.count >= 5 {
+                let reversedPart = String(" " + part.reversed())
+                result.append(reversedPart)
+            } else {
+                result.append(" " + part)
+            }
+        }
+        return result
+    }
+    
     
     
     
@@ -236,6 +251,7 @@ struct StringsView: View {
             Text("threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))")
             Text("longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))")
             Text("existsHigher: \(vm.existsHigher(arr: [2,4,6], number: 5))")
+            Text("reverse: \(vm.reverse(input: "This is a typical sentence."))")
         }
     }
 }
