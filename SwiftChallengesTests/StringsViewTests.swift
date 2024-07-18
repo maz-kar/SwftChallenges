@@ -217,5 +217,32 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, "flip")
     }
     
+    func test_existsHigher_givenHigherthanNumber_shouldReturnTrue() {
+        let userArr: [Int] = [2,4,6]
+        let userNumber = 5
+        
+        let output = sut.existsHigher(arr: userArr, number: userNumber)
+        
+        XCTAssertTrue(output)
+    }
+    
+    func test_existsHigher_givenLowerthanNumber_shouldReturnFalse() {
+        let userArr: [Int] = [2,4]
+        let userNumber = 5
+        
+        let output = sut.existsHigher(arr: userArr, number: userNumber)
+        
+        XCTAssertFalse(output)
+    }
+    
+    func test_existsHigher_givenEmptyArr_shouldReturnFalse() {
+        let userArr: [Int] = []
+        let userNumber = 5
+        
+        let output = sut.existsHigher(arr: userArr, number: userNumber)
+        
+        XCTAssertFalse(output)
+    }
+    
 }
 

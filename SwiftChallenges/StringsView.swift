@@ -188,7 +188,6 @@ class StringsViewModel: ObservableObject {
     //Write a function that returns true if there exists at least one number that is larger than or equal to n.
     func existsHigher(arr: [Int], number: Int) -> Bool {
         arr.contains { $0 > number }
-        //TODO: Add the test of existsHigher
     }
     
     //Write a function that takes a string of one or more words as an argument and returns the same string, but with all five or more letter words reversed. Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
@@ -244,5 +243,3 @@ struct StringsView: View {
 #Preview {
     StringsView()
 }
-
-//TODO: Challenge 13: Run-length encoding
