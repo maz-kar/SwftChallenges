@@ -206,6 +206,19 @@ class StringsViewModel: ObservableObject {
         return result
     }
     
+    //TODO: do it once again with map
+    
+//    func reverse2() -> String {
+//        let input = "typical sentence."
+//        let parts = input.components(separatedBy: " ")
+//        var result = ""
+//        
+//        print(parts)
+//        
+//        
+//        return result
+//    }
+    
     
     
     
@@ -252,6 +265,7 @@ struct StringsView: View {
             Text("longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))")
             Text("existsHigher: \(vm.existsHigher(arr: [2,4,6], number: 5))")
             Text("reverse: \(vm.reverse(input: "This is a typical sentence."))")
+            //Text("reverse2: \(vm.reverse2())")
         }
     }
 }
