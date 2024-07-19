@@ -192,39 +192,24 @@ class StringsViewModel: ObservableObject {
     
     //Write a function that takes a string of one or more words as an argument and returns the same string, but with all five or more letter words reversed. Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
     func reverse(input: String) -> String {
-        let parts = input.components(separatedBy: " ")
+        let words = input.components(separatedBy: " ")
         var result = ""
         
-        for part in parts {
-            if part.count >= 5 {
-                let reversedPart = String(" " + part.reversed())
+        for word in words {
+            if word.count >= 5 {
+                let reversedPart = String(" " + word.reversed())
                 result.append(reversedPart)
             } else {
-                result.append(" " + part)
+                result.append(" " + word)
             }
         }
         return result
     }
     
-    //TODO: do it once again with map
-    
-//    func reverse2() -> String {
-//        let input = "typical sentence."
-//        let parts = input.components(separatedBy: " ")
-//        var result = ""
-//        
-//        print(parts)
-//        
-//        
-//        return result
-//    }
-    
-    
-    
-    
-    
-    
-    
+    func reverseWithMap(input: String) -> String {
+        let words = input.components(separatedBy: " ")
+        return words.map { $0.count >= 5 ? String($0.reversed()) : $0 }.joined(separator: " ")
+    }
     
 }
 
@@ -265,7 +250,7 @@ struct StringsView: View {
             Text("longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))")
             Text("existsHigher: \(vm.existsHigher(arr: [2,4,6], number: 5))")
             Text("reverse: \(vm.reverse(input: "This is a typical sentence."))")
-            //Text("reverse2: \(vm.reverse2())")
+            Text("reverseWithMap: \(vm.reverseWithMap(input: "This is a typical sentence."))")
         }
     }
 }

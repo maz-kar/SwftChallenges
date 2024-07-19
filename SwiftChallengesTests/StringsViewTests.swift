@@ -243,6 +243,5 @@ final class StringsViewTests: XCTestCase {
         
         XCTAssertFalse(output)
     }
-    
 }
 
