@@ -197,10 +197,10 @@ class StringsViewModel: ObservableObject {
         
         for word in words {
             if word.count >= 5 {
-                let reversedPart = String(" " + word.reversed())
+                let reversedPart = String(word.reversed() + " ")
                 result.append(reversedPart)
             } else {
-                result.append(" " + word)
+                result.append(word + " ")
             }
         }
         return result

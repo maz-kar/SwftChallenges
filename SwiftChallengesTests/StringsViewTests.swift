@@ -243,5 +243,39 @@ final class StringsViewTests: XCTestCase {
         
         XCTAssertFalse(output)
     }
+    
+    func test_reverse_givenWordWithLessThan5Char_shouldReturnTheWordItself() {
+        let userInput = "This is a big dog."
+        
+        let output = sut.reverse(input: userInput)
+        
+        XCTAssertEqual(output, "This is a big dog. ")
+    }
+    
+    func test_reverse_givenWordWithBiggerThanOrEqaul5Char_shouldReturnTheReversedWord() {
+        let userInput = "This is a typical sentence."
+        
+        let output = sut.reverse(input: userInput)
+        
+        XCTAssertEqual(output, "This is a lacipyt .ecnetnes ")
+    }
+    
+    func test_reverseWithMap_givenWordWithLessThan5Char_shouldReturnTheWordItself() {
+        let userInput = "This is a big dog."
+        
+        let output = sut.reverseWithMap(input: userInput)
+        
+        XCTAssertEqual(output, "This is a big dog.")
+    }
+    
+    func test_reverseWithMap_givenWordWithBiggerThanOrEqaul5Char_shouldReturnTheReversedWord() {
+        let userInput = "This is a typical sentence."
+        
+        let output = sut.reverseWithMap(input: userInput)
+        
+        XCTAssertEqual(output, "This is a lacipyt .ecnetnes")
+    }
+    
+    
 }
 
