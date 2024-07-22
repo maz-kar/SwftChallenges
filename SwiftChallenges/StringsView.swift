@@ -229,6 +229,10 @@ class StringsViewModel: ObservableObject {
         }
     }
     
+    func stepsToConvertWithFilter(_ str: String) -> Int {
+        return min(str.filter { $0.lowercased() == String($0) }.count, str.filter { $0.uppercased() == String($0) }.count)
+    }
+    
 }
 
 extension String {
@@ -270,6 +274,7 @@ struct StringsView: View {
             Text("reverse: \(vm.reverse(input: "This is a typical sentence."))")
             Text("reverseWithMap: \(vm.reverseWithMap(input: "This is a typical sentence."))")
             Text("stepsToConvert: \(vm.stepsToConvert(input: "abC"))")
+            Text("stepsToConvertWithFilter: \(vm.stepsToConvertWithFilter("abC"))")
         }
     }
 }
