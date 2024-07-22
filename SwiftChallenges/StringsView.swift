@@ -211,6 +211,7 @@ class StringsViewModel: ObservableObject {
         return words.map { $0.count >= 5 ? String($0.reversed()) : $0 }.joined(separator: " ")
     }
     
+    //Return the smallest number of steps it takes to convert a string entirely into uppercase or entirely into lower case, whichever takes the fewest number of steps. A step consists of changing one character from lower to upper case, or vice versa.
     func stepsToConvert(input: String) -> Int {
         var lowerContainer = ""
         var upperContainer = ""
@@ -231,6 +232,11 @@ class StringsViewModel: ObservableObject {
     
     func stepsToConvertWithFilter(_ str: String) -> Int { //No need to be tested as it's the same as above method.
         return min(str.filter { $0.lowercased() == String($0) }.count, str.filter { $0.uppercased() == String($0) }.count)
+    }
+    
+    //Create a function to extract the name of the subreddit from its URL.
+    func retrieveSubReddit() {
+        let input = "https://www.reddit.com/r/funny/"
     }
     
 }
