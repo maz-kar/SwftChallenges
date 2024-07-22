@@ -276,6 +276,21 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(output, "This is a lacipyt .ecnetnes")
     }
     
+    func test_stepsToConvert_GivenAllLowerCase_shouldReturn0() {
+        let userInput = "aba"
+        
+        let output = sut.stepsToConvert(input: userInput)
+        
+        XCTAssertEqual(output, 0)
+    }
+    
+    func test_stepsToConvert_GivenMoreUpperLetters_shouldReturnFewerLowerLetterCount() {
+        let userInput = "abCBA"
+        
+        let output = sut.stepsToConvert(input: userInput)
+        
+        XCTAssertEqual(output, 2)
+    }
     
 }
 

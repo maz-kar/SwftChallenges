@@ -229,7 +229,7 @@ class StringsViewModel: ObservableObject {
         }
     }
     
-    func stepsToConvertWithFilter(_ str: String) -> Int {
+    func stepsToConvertWithFilter(_ str: String) -> Int { //No need to be tested as it's the same as above method.
         return min(str.filter { $0.lowercased() == String($0) }.count, str.filter { $0.uppercased() == String($0) }.count)
     }
     
