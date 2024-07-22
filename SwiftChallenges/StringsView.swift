@@ -211,6 +211,24 @@ class StringsViewModel: ObservableObject {
         return words.map { $0.count >= 5 ? String($0.reversed()) : $0 }.joined(separator: " ")
     }
     
+    func stepsToConvert(input: String) -> Int {
+        var lowerContainer = ""
+        var upperContainer = ""
+        
+        for letter in input {
+            if letter.isLowercase {
+                lowerContainer.append(letter)
+            } else {
+                upperContainer.append(letter)
+            }
+        }
+        if lowerContainer.count > upperContainer.count {
+            return upperContainer.count
+        } else {
+            return lowerContainer.count
+        }
+    }
+    
 }
 
 extension String {
@@ -251,6 +269,7 @@ struct StringsView: View {
             Text("existsHigher: \(vm.existsHigher(arr: [2,4,6], number: 5))")
             Text("reverse: \(vm.reverse(input: "This is a typical sentence."))")
             Text("reverseWithMap: \(vm.reverseWithMap(input: "This is a typical sentence."))")
+            Text("stepsToConvert: \(vm.stepsToConvert(input: "abC"))")
         }
     }
 }
