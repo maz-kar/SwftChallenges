@@ -230,13 +230,13 @@ class StringsViewModel: ObservableObject {
         }
     }
     
-    func stepsToConvertWithFilter(_ str: String) -> Int { //No need to be tested as it's the same as above method.
+    func stepsToConvertWithFilter(_ str: String) -> Int {
         return min(str.filter { $0.lowercased() == String($0) }.count, str.filter { $0.uppercased() == String($0) }.count)
     }
     
     //Create a function to extract the name of the subreddit from its URL.
-    func retrieveSubReddit() {
-        let input = "https://www.reddit.com/r/funny/"
+    func retrieveSubReddit(input: String) -> String {
+        return String(input.split(separator: "/").last!)
     }
     
 }
@@ -281,6 +281,7 @@ struct StringsView: View {
             Text("reverseWithMap: \(vm.reverseWithMap(input: "This is a typical sentence."))")
             Text("stepsToConvert: \(vm.stepsToConvert(input: "abC"))")
             Text("stepsToConvertWithFilter: \(vm.stepsToConvertWithFilter("abC"))")
+            Text("retrieveSubReddit: \(vm.retrieveSubReddit(input: "https://www.reddit.com/r/funny/"))")
         }
     }
 }

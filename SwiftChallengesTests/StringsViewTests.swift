@@ -292,5 +292,29 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(output, 2)
     }
     
+    func test_stepsToConvertWithFilter_GivenAllLowerCase_shouldReturn0() {
+        let userInput = "aba"
+        
+        let output = sut.stepsToConvertWithFilter(userInput)
+        
+        XCTAssertEqual(output, 0)
+    }
+    
+    func test_stepsToConvertWithFilter_GivenMoreUpperLetters_shouldReturnFewerLowerLetterCount() {
+        let userInput = "abCBA"
+        
+        let output = sut.stepsToConvert(input: userInput)
+        
+        XCTAssertEqual(output, 2)
+    }
+    
+    func test_retrieveSubReddit_shouldReturnTheSubredditNameInTheURL() {
+        let subredditURL = "https://www.reddit.com/r/relationships/"
+        
+        let output = sut.retrieveSubReddit(input: subredditURL)
+        
+        XCTAssertEqual(output, "relationships")
+    }
+    
 }
 
