@@ -239,6 +239,12 @@ class StringsViewModel: ObservableObject {
         return String(input.split(separator: "/").last!)
     }
     
+    //Write a function that returns true if two rooks can attack each other, and false otherwise.
+    //canCapture(["A8", "E8"]) ➞ true  canCapture(["A1", "B2"]) ➞ false
+    func canCapture() {
+        
+    }
+    
 }
 
 extension String {
