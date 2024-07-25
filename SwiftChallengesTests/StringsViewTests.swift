@@ -332,5 +332,23 @@ final class StringsViewTests: XCTestCase {
         XCTAssertFalse(output)
     }
     
+    func test_hammingDistance_givenFullyOppositeStrings_shouldReturnNonZero() {
+        let strOne = "abcde"
+        let strTwo = "bcdef"
+        
+        let output = sut.hammingDistance(strOne: strOne, strTwo: strTwo)
+        
+        XCTAssertGreaterThan(output, 0)
+    }
+    
+    func test_hammingDistance_givenFullyIdenticalStrings_shouldReturnZero() {
+        let strOne = "abcde"
+        let strTwo = "abcde"
+        
+        let output = sut.hammingDistance(strOne: strOne, strTwo: strTwo)
+        
+        XCTAssertEqual(output, 0)
+    }
+    
 }
 
