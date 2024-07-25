@@ -316,5 +316,21 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(output, "relationships")
     }
     
+    func test_canCapture_givenIdenticalRow_shouldReturnTrue() {
+        let userInput = ["A8", "E8"]
+        
+        let output = sut.canCapture(input: userInput)
+        
+        XCTAssertTrue(output)
+    }
+    
+    func test_canCapture_givenNonIdenticalRow_shouldReturnFalse() {
+        let userInput = ["B5", "E8"]
+        
+        let output = sut.canCapture(input: userInput)
+        
+        XCTAssertFalse(output)
+    }
+    
 }
 

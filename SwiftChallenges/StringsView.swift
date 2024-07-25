@@ -240,9 +240,8 @@ class StringsViewModel: ObservableObject {
     }
     
     //Write a function that returns true if two rooks can attack each other, and false otherwise.
-    //canCapture(["A8", "E8"]) ➞ true  canCapture(["A1", "B2"]) ➞ false
-    func canCapture() {
-        
+    func canCapture(input: [String]) -> Bool {
+        return input[0].first == input[1].first || input[0].last == input[1].last
     }
     
 }
@@ -262,8 +261,8 @@ struct StringsView: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Text("areLettersUniqueWithForLoop: \(vm.areLettersUniqueWithForLoop(input: "AaBbCc"))")
-            Text("areLettersUniqueWithSet: \(vm.areLettersUniqueWithSet(input: "Hello World!"))")
+//            Text("areLettersUniqueWithForLoop: \(vm.areLettersUniqueWithForLoop(input: "AaBbCc"))")
+//            Text("areLettersUniqueWithSet: \(vm.areLettersUniqueWithSet(input: "Hello World!"))")
             Text("isStrPalindrome: \(vm.isStrPalindrome(input: "Rotator"))")
             Text("strsContainSameChar: \(vm.strsContainSameChar(strOne: "a1 b2", strTwo: "b1 a2"))")
             Text("fuzzyContainsA: \("Hello World".fuzzyContainsA(str: "Hello").description)")
@@ -288,6 +287,7 @@ struct StringsView: View {
             Text("stepsToConvert: \(vm.stepsToConvert(input: "abC"))")
             Text("stepsToConvertWithFilter: \(vm.stepsToConvertWithFilter("abC"))")
             Text("retrieveSubReddit: \(vm.retrieveSubReddit(input: "https://www.reddit.com/r/funny/"))")
+            Text("canCapture: \(vm.canCapture(input: ["A8", "E8"]))")
         }
     }
 }
