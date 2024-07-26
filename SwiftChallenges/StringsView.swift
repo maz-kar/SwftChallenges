@@ -249,6 +249,13 @@ class StringsViewModel: ObservableObject {
         return zip(strOne, strTwo).filter{ $0 != $1 }.count
     }
     
+    //Create a function that takes an initial word and extracts any words that start with the same letters as the initial word.
+    func littleDictionary(initialWord: String, words: [String]) -> [String] {
+        return words.filter { $0.contains(initialWord) }
+    }
+    
+    
+    
 }
 
 extension String {
@@ -295,6 +302,9 @@ struct StringsView: View {
                 Text("retrieveSubReddit: \(vm.retrieveSubReddit(input: "https://www.reddit.com/r/funny/"))")
                 Text("canCapture: \(vm.canCapture(input: ["A8", "E8"]))")
                 Text("hammingDistance: \(vm.hammingDistance(strOne: "abcde", strTwo: "bcdef"))")
+                Text("littleDictionary: \(vm.littleDictionary(initialWord: "tri", words: ["triplet", "tries", "trip", "piano", "tree"]))")
+
+                
             }
         }
     }
