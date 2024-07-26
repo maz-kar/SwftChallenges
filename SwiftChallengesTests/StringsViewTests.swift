@@ -350,5 +350,23 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(output, 0)
     }
     
+    func test_littleDictionary_givenValidWords_shouldReturnNonEmptyArrString() {
+        let initialUserWord = "bu"
+        let words = ["button", "butler", "bottom"]
+        
+        let output = sut.littleDictionary(initialWord: initialUserWord, words: words)
+        
+        XCTAssertGreaterThan(output.count, 0)
+    }
+    
+    func test_littleDictionary_givenInvalidWords_shouldReturnEmptyArrString() {
+        let initialUserWord = "tri"
+        let words = ["button", "butler", "bottom"]
+        
+        let output = sut.littleDictionary(initialWord: initialUserWord, words: words)
+        
+        XCTAssertEqual(output.count, 0)
+    }
+    
 }
 
