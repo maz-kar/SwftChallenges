@@ -254,6 +254,11 @@ class StringsViewModel: ObservableObject {
         return words.filter { $0.contains(initialWord) }
     }
     
+    func reverse(_ str: String) -> String {
+        return String(str.reversed())
+    }
+    
+    //Create a function that takes an array of numbers and returns the second largest number.
     
     
 }
@@ -303,6 +308,7 @@ struct StringsView: View {
                 Text("canCapture: \(vm.canCapture(input: ["A8", "E8"]))")
                 Text("hammingDistance: \(vm.hammingDistance(strOne: "abcde", strTwo: "bcdef"))")
                 Text("littleDictionary: \(vm.littleDictionary(initialWord: "tri", words: ["triplet", "tries", "trip", "piano", "tree"]))")
+                Text("reverse: \(vm.reverse("Edabit is really helpful!"))")
 
                 
             }
