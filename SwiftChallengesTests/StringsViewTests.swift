@@ -368,5 +368,13 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(output.count, 0)
     }
     
+    func test_reverse_givenValidString_shouldReturnReversedString() {
+        let userInput = "Hello World"
+        
+        let output = sut.reverse(userInput)
+        
+        XCTAssertEqual(output, "dlroW olleH")
+    }
+    
 }
 
