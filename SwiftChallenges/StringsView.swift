@@ -7,6 +7,69 @@
 
 import SwiftUI
 
+struct StringsView: View {
+    @StateObject private var vm = StringsViewModel()
+    let backgroundColor = #colorLiteral(red: 0.5741485357, green: 0.5741624236, blue: 0.574154973, alpha: 1)
+    
+    var body: some View {
+        NavigationStack {
+            List {
+                ScrollView {
+                    VStack(spacing: 15) {
+                        ForEach(tasks(), id: \.self) { task in
+                            Text(task)
+                        }
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.25)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 60)
+                        .background(Color(backgroundColor))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
+                }
+            }
+            .listStyle(.plain)
+            .navigationTitle("Swift Challenges")
+        }
+    }
+    
+    private func tasks() -> [String] {
+        [
+            "areLettersUniqueWithForLoop: \(vm.areLettersUniqueWithForLoop(input: "AaBbCc"))",
+            "areLettersUniqueWithSet: \(vm.areLettersUniqueWithSet(input: "Hello World!"))",
+            "isStrPalindrome: \(vm.isStrPalindrome(input: "Rotator"))",
+            "strsContainSameChar: \(vm.strsContainSameChar(strOne: "a1 b2", strTwo: "b1 a2"))",
+            "fuzzyContainsA: \("Hello World".fuzzyContainsA(str: "Hello").description)",
+            "fuzzyContainsB: \("Hello World".fuzzyContainsB(str: "Goodbye").description)",
+            "countTargetedCharWithForLoop: \(vm.countTargetedCharWithForLoop(str: "Mississippi", targetedLetter: "p"))",
+            "countTargetedCharWithReduce: \(vm.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "s"))",
+            "countTargetedCharWithReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippim", targetedLetter: "M"))",
+            "countAllLettersInString: \(vm.countAllLettersInString(str: "Mississippi"))",
+            "removeDuplicateLettersWithUpdateValue: \(vm.removeDuplicateLettersWithFilterAndUpdateValue(input: "Hello"))",
+            "removeDuplicateLetterForLoop: \(vm.removeDuplicateLetterForLoop(input: "apple"))",
+            "condenseWhitespaceWithRegularExpression: \(vm.condenseWhitespaceWithRegularExpression(input: "   a   b    c"))",
+            "condenseWhitespaceWithForLoop: \(vm.condenseWhitespaceWithForLoop(input: "   a   b    c"))",
+            "stringRotated: \(vm.stringRotated(str: "abcde", rotatedStr: "deabc"))",
+            "findPangrams: \(vm.findPangrams(str: "The quick brown fox jumps over the lazy dog"))",
+            "vow&ConsonWithForLoop: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))",
+            "vow&ConsonWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))",
+            "threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))",
+            "longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))",
+            "existsHigher: \(vm.existsHigher(arr: [2,4,6], number: 5))",
+            "reverse: \(vm.reverse(input: "This is a typical sentence."))",
+            "reverseWithMap: \(vm.reverseWithMap(input: "This is a typical sentence."))",
+            "stepsToConvert: \(vm.stepsToConvert(input: "abC"))",
+            "stepsToConvertWithFilter: \(vm.stepsToConvertWithFilter("abC"))",
+            "retrieveSubReddit: \(vm.retrieveSubReddit(input: "https://www.reddit.com/r/funny/"))",
+            "canCapture: \(vm.canCapture(input: ["A8", "E8"]))",
+            "hammingDistance: \(vm.hammingDistance(strOne: "abcde", strTwo: "bcdef"))",
+            "littleDictionary: \(vm.littleDictionary(initialWord: "tri", words: ["triplet", "tries", "trip", "piano", "tree"]))",
+            "reverse: \(vm.reverse("Edabit is really helpful!"))",
+            
+        ]
+    }
+}
+
 class StringsViewModel: ObservableObject {
     
     func areLettersUniqueWithForLoop(input: String) -> Bool {
@@ -271,69 +334,6 @@ extension String {
     
     func fuzzyContainsB(str: String) -> Bool {
         return (self.range(of: str, options: .caseInsensitive) != nil) //MARK: means A and a will be different for it?
-    }
-}
-
-struct StringsView: View {
-    @StateObject private var vm = StringsViewModel()
-    let backgroundColor = #colorLiteral(red: 0.5741485357, green: 0.5741624236, blue: 0.574154973, alpha: 1)
-    
-    var body: some View {
-        NavigationStack {
-            List {
-                ScrollView {
-                    VStack(spacing: 15) {
-                        ForEach(tasks(), id: \.self) { task in
-                            Text(task)
-                        }
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.25)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 60)
-                        .background(Color(backgroundColor))
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                    }
-                }
-            }
-            .listStyle(.plain)
-            .navigationTitle("Swift Challenges")
-        }
-    }
-    
-    private func tasks() -> [String] {
-        [
-            "areLettersUniqueWithForLoop: \(vm.areLettersUniqueWithForLoop(input: "AaBbCc"))",
-            "areLettersUniqueWithSet: \(vm.areLettersUniqueWithSet(input: "Hello World!"))",
-            "isStrPalindrome: \(vm.isStrPalindrome(input: "Rotator"))",
-            "strsContainSameChar: \(vm.strsContainSameChar(strOne: "a1 b2", strTwo: "b1 a2"))",
-            "fuzzyContainsA: \("Hello World".fuzzyContainsA(str: "Hello").description)",
-            "fuzzyContainsB: \("Hello World".fuzzyContainsB(str: "Goodbye").description)",
-            "countTargetedCharWithForLoop: \(vm.countTargetedCharWithForLoop(str: "Mississippi", targetedLetter: "p"))",
-            "countTargetedCharWithReduce: \(vm.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "s"))",
-            "countTargetedCharWithReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippim", targetedLetter: "M"))",
-            "countAllLettersInString: \(vm.countAllLettersInString(str: "Mississippi"))",
-            "removeDuplicateLettersWithUpdateValue: \(vm.removeDuplicateLettersWithFilterAndUpdateValue(input: "Hello"))",
-            "removeDuplicateLetterForLoop: \(vm.removeDuplicateLetterForLoop(input: "apple"))",
-            "condenseWhitespaceWithRegularExpression: \(vm.condenseWhitespaceWithRegularExpression(input: "   a   b    c"))",
-            "condenseWhitespaceWithForLoop: \(vm.condenseWhitespaceWithForLoop(input: "   a   b    c"))",
-            "stringRotated: \(vm.stringRotated(str: "abcde", rotatedStr: "deabc"))",
-            "findPangrams: \(vm.findPangrams(str: "The quick brown fox jumps over the lazy dog"))",
-            "vow&ConsonWithForLoop: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))",
-            "vow&ConsonWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))",
-            "threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))",
-            "longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))",
-            "existsHigher: \(vm.existsHigher(arr: [2,4,6], number: 5))",
-            "reverse: \(vm.reverse(input: "This is a typical sentence."))",
-            "reverseWithMap: \(vm.reverseWithMap(input: "This is a typical sentence."))",
-            "stepsToConvert: \(vm.stepsToConvert(input: "abC"))",
-            "stepsToConvertWithFilter: \(vm.stepsToConvertWithFilter("abC"))",
-            "retrieveSubReddit: \(vm.retrieveSubReddit(input: "https://www.reddit.com/r/funny/"))",
-            "canCapture: \(vm.canCapture(input: ["A8", "E8"]))",
-            "hammingDistance: \(vm.hammingDistance(strOne: "abcde", strTwo: "bcdef"))",
-            "littleDictionary: \(vm.littleDictionary(initialWord: "tri", words: ["triplet", "tries", "trip", "piano", "tree"]))",
-            "reverse: \(vm.reverse("Edabit is really helpful!"))",
-            
-        ]
     }
 }
 
