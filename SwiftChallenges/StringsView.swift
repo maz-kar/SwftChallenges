@@ -276,47 +276,64 @@ extension String {
 
 struct StringsView: View {
     @StateObject private var vm = StringsViewModel()
+    let backgroundColor = #colorLiteral(red: 0.5741485357, green: 0.5741624236, blue: 0.574154973, alpha: 1)
     
     var body: some View {
         NavigationStack {
             List {
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 15) {
-                        Text("areLettersUniqueWithForLoop: \(vm.areLettersUniqueWithForLoop(input: "AaBbCc"))")
-                        Text("areLettersUniqueWithSet: \(vm.areLettersUniqueWithSet(input: "Hello World!"))")
-                        Text("isStrPalindrome: \(vm.isStrPalindrome(input: "Rotator"))")
-                        Text("strsContainSameChar: \(vm.strsContainSameChar(strOne: "a1 b2", strTwo: "b1 a2"))")
-                        Text("fuzzyContainsA: \("Hello World".fuzzyContainsA(str: "Hello").description)")
-                        Text("fuzzyContainsB: \("Hello World".fuzzyContainsB(str: "Goodbye").description)")
-                        Text("countTargetedCharWithForLoop: \(vm.countTargetedCharWithForLoop(str: "Mississippi", targetedLetter: "p"))")
-                        Text("countTargetedCharWithReduce: \(vm.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "s"))")
-                        Text("countTargetedCharWithReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippim", targetedLetter: "M"))")
-                        Text("countAllLettersInString: \(vm.countAllLettersInString(str: "Mississippi"))")
-                        Text("removeDuplicateLettersWithUpdateValue: \(vm.removeDuplicateLettersWithFilterAndUpdateValue(input: "Hello"))")
-                        Text("removeDuplicateLetterForLoop: \(vm.removeDuplicateLetterForLoop(input: "apple"))")
-                        Text("condenseWhitespaceWithRegularExpression: \(vm.condenseWhitespaceWithRegularExpression(input: "   a   b    c"))")
-                        Text("condenseWhitespaceWithForLoop: \(vm.condenseWhitespaceWithForLoop(input: "   a   b    c"))")
-                        Text("stringRotated: \(vm.stringRotated(str: "abcde", rotatedStr: "deabc"))")
-                        Text("findPangrams: \(vm.findPangrams(str: "The quick brown fox jumps over the lazy dog"))")
-                        Text("vow&ConsonWithForLoop: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))")
-                        Text("vow&ConsonWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))")
-                        Text("threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))")
-                        Text("longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))")
-                        Text("existsHigher: \(vm.existsHigher(arr: [2,4,6], number: 5))")
-                        Text("reverse: \(vm.reverse(input: "This is a typical sentence."))")
-                        Text("reverseWithMap: \(vm.reverseWithMap(input: "This is a typical sentence."))")
-                        Text("stepsToConvert: \(vm.stepsToConvert(input: "abC"))")
-                        Text("stepsToConvertWithFilter: \(vm.stepsToConvertWithFilter("abC"))")
-                        Text("retrieveSubReddit: \(vm.retrieveSubReddit(input: "https://www.reddit.com/r/funny/"))")
-                        Text("canCapture: \(vm.canCapture(input: ["A8", "E8"]))")
-                        Text("hammingDistance: \(vm.hammingDistance(strOne: "abcde", strTwo: "bcdef"))")
-                        Text("littleDictionary: \(vm.littleDictionary(initialWord: "tri", words: ["triplet", "tries", "trip", "piano", "tree"]))")
-                        Text("reverse: \(vm.reverse("Edabit is really helpful!"))")
+                    VStack(spacing: 15) {
+                        ForEach(tasks(), id: \.self) { task in
+                            Text(task)
+                        }
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.25)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 60)
+                        .background(Color(backgroundColor))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }
             }
+            .listStyle(.plain)
             .navigationTitle("Swift Challenges")
         }
+    }
+    
+    private func tasks() -> [String] {
+        [
+            "areLettersUniqueWithForLoop: \(vm.areLettersUniqueWithForLoop(input: "AaBbCc"))",
+            "areLettersUniqueWithSet: \(vm.areLettersUniqueWithSet(input: "Hello World!"))",
+            "isStrPalindrome: \(vm.isStrPalindrome(input: "Rotator"))",
+            "strsContainSameChar: \(vm.strsContainSameChar(strOne: "a1 b2", strTwo: "b1 a2"))",
+            "fuzzyContainsA: \("Hello World".fuzzyContainsA(str: "Hello").description)",
+            "fuzzyContainsB: \("Hello World".fuzzyContainsB(str: "Goodbye").description)",
+            "countTargetedCharWithForLoop: \(vm.countTargetedCharWithForLoop(str: "Mississippi", targetedLetter: "p"))",
+            "countTargetedCharWithReduce: \(vm.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "s"))",
+            "countTargetedCharWithReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippim", targetedLetter: "M"))",
+            "countAllLettersInString: \(vm.countAllLettersInString(str: "Mississippi"))",
+            "removeDuplicateLettersWithUpdateValue: \(vm.removeDuplicateLettersWithFilterAndUpdateValue(input: "Hello"))",
+            "removeDuplicateLetterForLoop: \(vm.removeDuplicateLetterForLoop(input: "apple"))",
+            "condenseWhitespaceWithRegularExpression: \(vm.condenseWhitespaceWithRegularExpression(input: "   a   b    c"))",
+            "condenseWhitespaceWithForLoop: \(vm.condenseWhitespaceWithForLoop(input: "   a   b    c"))",
+            "stringRotated: \(vm.stringRotated(str: "abcde", rotatedStr: "deabc"))",
+            "findPangrams: \(vm.findPangrams(str: "The quick brown fox jumps over the lazy dog"))",
+            "vow&ConsonWithForLoop: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))",
+            "vow&ConsonWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))",
+            "threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))",
+            "longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))",
+            "existsHigher: \(vm.existsHigher(arr: [2,4,6], number: 5))",
+            "reverse: \(vm.reverse(input: "This is a typical sentence."))",
+            "reverseWithMap: \(vm.reverseWithMap(input: "This is a typical sentence."))",
+            "stepsToConvert: \(vm.stepsToConvert(input: "abC"))",
+            "stepsToConvertWithFilter: \(vm.stepsToConvertWithFilter("abC"))",
+            "retrieveSubReddit: \(vm.retrieveSubReddit(input: "https://www.reddit.com/r/funny/"))",
+            "canCapture: \(vm.canCapture(input: ["A8", "E8"]))",
+            "hammingDistance: \(vm.hammingDistance(strOne: "abcde", strTwo: "bcdef"))",
+            "littleDictionary: \(vm.littleDictionary(initialWord: "tri", words: ["triplet", "tries", "trip", "piano", "tree"]))",
+            "reverse: \(vm.reverse("Edabit is really helpful!"))",
+            
+        ]
     }
 }
 
