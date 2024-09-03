@@ -71,7 +71,7 @@ final class StringsViewTests: XCTestCase {
         let str1 = "Hello World"
         let str2 = "Hello"
         
-        let result = str1.fuzzyContainsA(str: str2)
+        let result = str1.rangeOfInsteadContainsA(str: str2)
         
         XCTAssertEqual(result, true)
     }
@@ -80,7 +80,7 @@ final class StringsViewTests: XCTestCase {
         let str1 = "Hello World"
         let str2 = "Goodbye"
         
-        let result = str1.fuzzyContainsB(str: str2)
+        let result = str1.rangeOfInsteadContainsB(str: str2)
         
         XCTAssertEqual(result, false)
     }
