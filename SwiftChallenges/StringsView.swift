@@ -41,9 +41,10 @@ struct StringsView: View {
             "strsContainSameChar: \(vm.strsContainSameChar(strOne: "a1 b2", strTwo: "b1 a2"))",
             "rangeOfInsteadContainsA: \("Hello World".rangeOfInsteadContainsA(str: "Hello").description)",
             "rangeOfInsteadContainsB: \("Hello World".rangeOfInsteadContainsB(str: "Goodbye").description)",
-            "countTargetedCharWithForLoop: \(vm.countTargetedCharWithForLoop(str: "Mississippi", targetedLetter: "p"))",
-            "countTargetedCharWithReduce: \(vm.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "s"))",
-            "countTargetedCharWithReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippim", targetedLetter: "M"))",
+            "countTargetedCharForLoop: \(vm.countTargetedCharWithForLoop(str: "Mississippi", targetedLetter: "i"))",
+            "countTargetedCharReduce: \(vm.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "s"))",
+            "countTargetedCharReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippim", targetedLetter: "M"))",
+            "countTargetedCharFilter: \(vm.countTargetedCharFilter(str: "Mississippi", targetedStr: "i"))",
             "countAllLettersInString: \(vm.countAllLettersInString(str: "Mississippi"))",
             "removeDuplicateLettersWithUpdateValue: \(vm.removeDuplicateLettersWithFilterAndUpdateValue(input: "Hello"))",
             "removeDuplicateLetterForLoop: \(vm.removeDuplicateLetterForLoop(input: "apple"))",
@@ -120,6 +121,10 @@ class StringsViewModel: ObservableObject {
         let result = str.replacingOccurrences(of: targetedLetter, with: "", options: .caseInsensitive)
         //replacingOccurrences will take targettedLetter out which later by count and subtraction can be our answer
         return str.count - result.count
+    }
+    
+    func countTargetedCharFilter(str: String, targetedStr: String) -> Int {
+        return str.filter( { String($0) == targetedStr }).count
     }
     
     func countAllLettersInString(str: String) -> [Character: Int] { //MARK: This is the exp of documentation

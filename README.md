@@ -8,5 +8,6 @@ On 03.09:
 - Continue with countTargetedCharWithForLoop and Reduce
 - Add my own version with Filter
 - Check all their tests.
+- Work more with replacingOccurance & reduce api
 
 

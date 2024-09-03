@@ -103,6 +103,12 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, 1)
     }
     
+    func test_countTagetedCharFilter_shouldReturnNumberOfOccurance() {
+        let result = sut.countTargetedCharFilter(str: "Mississippi", targetedStr: "i")
+        
+        XCTAssertEqual(result, 4)
+    }
+    
     func test_countAllLettersInString_shouldReturnADictOfLettersAndCounts() {
         let sortedInput = String("Mississippi".sorted())
         let result = sut.countAllLettersInString(str: sortedInput)
