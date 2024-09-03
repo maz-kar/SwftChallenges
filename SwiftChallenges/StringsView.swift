@@ -39,8 +39,8 @@ struct StringsView: View {
             "areLettersUniqueWithSet: \(vm.areLettersUniqueWithSet(input: "Hello World!"))",
             "isStrPalindrome: \(vm.isStrPalindrome(input: "Rotator"))",
             "strsContainSameChar: \(vm.strsContainSameChar(strOne: "a1 b2", strTwo: "b1 a2"))",
-            "fuzzyContainsA: \("Hello World".rangeOfInsteadContainsA(str: "Hello").description)",
-            "fuzzyContainsB: \("Hello World".rangeOfInsteadContainsB(str: "Goodbye").description)",
+            "rangeOfInsteadContainsA: \("Hello World".rangeOfInsteadContainsA(str: "Hello").description)",
+            "rangeOfInsteadContainsB: \("Hello World".rangeOfInsteadContainsB(str: "Goodbye").description)",
             "countTargetedCharWithForLoop: \(vm.countTargetedCharWithForLoop(str: "Mississippi", targetedLetter: "p"))",
             "countTargetedCharWithReduce: \(vm.countTargetedCharWithReduce(str: "Mississippi", targetedLetter: "s"))",
             "countTargetedCharWithReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippim", targetedLetter: "M"))",
@@ -324,7 +324,6 @@ class StringsViewModel: ObservableObject {
 
 }
 
-
 extension String {
     func rangeOfInsteadContainsA(str: String) -> Bool {
         return self.uppercased().range(of: str.uppercased()) != nil
@@ -333,7 +332,6 @@ extension String {
     func rangeOfInsteadContainsB(str: String) -> Bool {
         return (self.range(of: str, options: .caseInsensitive) != nil) //MARK: means A and a will be different for it?
     }
-    
 }
 
 #Preview {
