@@ -4,10 +4,9 @@
 A self-educational iOS app to practice Swift.
 
 ## TODO
-On 03.09:
-- Continue with countTargetedCharWithForLoop and Reduce
-- Add my own version with Filter
-- Check all their tests.
+On 09.09:
+
+## Researches
 - Work more with replacingOccurance & reduce api
 
 
