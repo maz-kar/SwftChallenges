@@ -116,7 +116,14 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(result, ["i": 4, "M": 1, "p": 2, "s": 4])
     }
     
-    func test_removeDuplicateLettersWithFilterAndUpdateValue_shouldReturnStringWithoutDiplication() {
+    func test_removeDuplicateFilter_shouldReturnStringWithoutDuplication() {
+        let input = "Hello"
+        let output = sut.removeDuplicateFilter(from: input)
+        
+        XCTAssertEqual(output, "Helo")
+    }
+    
+    func test_removeDuplicateLettersWithFilterAndUpdateValue_shouldReturnStringWithoutDuplication() {
         let input = "Hello"
         let result = sut.removeDuplicateLettersWithFilterAndUpdateValue(input: input)
         
