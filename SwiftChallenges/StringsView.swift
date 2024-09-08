@@ -46,6 +46,7 @@ struct StringsView: View {
             "countTargetedCharReplacingOccurance: \(vm.countTargetedCharWithReplacingOccurance(str: "Mississippim", targetedLetter: "M"))",
             "countTargetedCharFilter: \(vm.countTargetedCharFilter(str: "Mississippi", targetedStr: "i"))",
             "countAllLettersInString: \(vm.countAllLettersInString(str: "Mississippi"))",
+            "removeDuplicateFilter: \(vm.removeDuplicateFilter(from: "Hello"))",
             "removeDuplicateLettersUpdateValue: \(vm.removeDuplicateLettersWithFilterAndUpdateValue(input: "Hello"))",
             "removeDuplicateLetterForLoop: \(vm.removeDuplicateLetterForLoop(input: "apple"))",
             "condenseWhitespaceWithRegularExpression: \(vm.condenseWhitespaceWithRegularExpression(input: "   a   b    c"))",
@@ -66,7 +67,6 @@ struct StringsView: View {
             "hammingDistance: \(vm.hammingDistance(strOne: "abcde", strTwo: "bcdef"))",
             "littleDictionary: \(vm.littleDictionary(initialWord: "tri", words: ["triplet", "tries", "trip", "piano", "tree"]))",
             "reverse: \(vm.reverse("Edabit is really helpful!"))",
-            //"removeDuplicateFilter: \(vm.removeDuplicateFilter(str: "Hello"))"
             
         ]
     }
