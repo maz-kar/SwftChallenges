@@ -151,14 +151,18 @@ class StringsViewModel: ObservableObject {
         return result
     }
     
-    func removeDuplicateLettersWithFilterAndUpdateValue(input: String) -> String { //MARK: can also be easily done with set
-        var used = [Character: Bool]()
-        //Hello
-        let result = input.filter { //This will return self or in this case string
-            used.updateValue(true, forKey: $0) == nil //This line checks if true,H is not in used / true,H in used is NIL, if so, returns true which means for the filter to keep the H. if case of 2nd l, true, l is !nil and then it returns false to filter which means not keeping the 2nd l.
-        }
+    func removeDuplicateLettersWithFilterAndUpdateValue(input: String) -> String {
+        var usedCharacter = [Character: Bool]()
         
-        return result
+        return input.filter { //This will return self or in this case string
+            usedCharacter.updateValue(true, forKey: $0) == nil
+            /*
+             When the character is encountered for the first time, updateValue(true, forKey: $0) returns nil because the character was not previously in the dictionary.
+             Since nil == nil evaluates to true, the character is included in the output string.
+             For any subsequent occurrence of the character, updateValue(true, forKey: $0) will return true (the previous value), not nil. Because this has been seen before and therefore the result of updateValue is true for updating.
+             Therefore, for duplicate characters, the condition will evaluate to false, and the character will be filtered out.
+             */
+        }
     }
     
     func condenseWhitespaceWithRegularExpression(input: String) -> String { //“a    b   c” --> “a b c”
