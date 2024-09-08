@@ -123,6 +123,13 @@ final class StringsViewTests: XCTestCase {
         XCTAssertEqual(output, "Helo")
     }
     
+    func test_removeDuplicateLetterForLoop_shouldReturnStringWithoutDuplication() {
+        let input = "Hello"
+        let output = sut.removeDuplicateLetterForLoop(input: input)
+        
+        XCTAssertEqual(output, "Helo")
+    }
+    
     func test_removeDuplicateLettersWithFilterAndUpdateValue_shouldReturnStringWithoutDuplication() {
         let input = "Hello"
         let result = sut.removeDuplicateLettersWithFilterAndUpdateValue(input: input)

@@ -137,7 +137,7 @@ class StringsViewModel: ObservableObject {
     func removeDuplicateFilter(from input: String) -> String {
         var seenCharacter = Set<Character>()
         return input.filter { character in
-            seenCharacter.insert(character).inserted
+            seenCharacter.insert(character).inserted //insert and inserted can only be used on set.
         }
     }
     
