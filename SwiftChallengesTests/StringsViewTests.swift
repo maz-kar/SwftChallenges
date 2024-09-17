@@ -193,7 +193,7 @@ final class StringsViewTests: XCTestCase {
     func test_vowelsAndConsonantsWithCharacterSet_shouldReturnZero() {
         let input = "!? "
         let vowelsResult = sut.vowelsAndConsonantsWithCharacterSet(input: input).vowels
-        let consonantsResult = sut.vowelsAndConsonantsWithCharacterSet(input: input).consonants
+        let consonantsResult = sut.vowelsAndConsonantsWithRangeOfCharacter(input: input).consonants
         
         XCTAssertEqual((vowelsResult), 0)
         XCTAssertEqual((consonantsResult), 0)

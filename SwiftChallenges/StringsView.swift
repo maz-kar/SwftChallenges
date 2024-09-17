@@ -54,7 +54,8 @@ struct StringsView: View {
             "stringRotated: \(vm.stringRotated(str: "abcde", rotatedStr: "deabc"))",
             "findPangrams: \(vm.findPangrams(str: "The quick brown fox jumps over the lazy dog"))",
             "vow&ConsonWithForLoop: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))",
-            "vow&ConsonWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))",
+            "vow&ConsonsWithRangeOfCharacter: \(vm.vowelsAndConsonantsWithRangeOfCharacter(input: "Mississippi"))",
+            "vow&ConsonsWithCharacterSet: \(vm.vowelsAndConsonantsWithCharacterSet(input: "Mississippi"))",
             "threeDiffenetLetter: \(vm.threeDifferentLetters(strOne: "clamp", strTwo: "maple"))",
             "longestPrefix: \(vm.longestPrefix(input: "flip flap flop"))",
             "existsHigher: \(vm.existsHigher(arr: [2,4,6], number: 5))",
@@ -67,7 +68,6 @@ struct StringsView: View {
             "hammingDistance: \(vm.hammingDistance(strOne: "abcde", strTwo: "bcdef"))",
             "littleDictionary: \(vm.littleDictionary(initialWord: "tri", words: ["triplet", "tries", "trip", "piano", "tree"]))",
             "reverse: \(vm.reverse("Edabit is really helpful!"))",
-            
         ]
     }
 }
@@ -215,7 +215,7 @@ class StringsViewModel: ObservableObject {
         return (vowelsCount, consonantsCount)
     }
     
-    func vowelsAndConsonantsWithCharacterSet(input: String) -> (vowels: Int, consonants: Int) {
+    func vowelsAndConsonantsWithRangeOfCharacter(input: String) -> (vowels: Int, consonants: Int) {
         let vowels = CharacterSet(charactersIn: "aeiou")
         let consonants = CharacterSet(charactersIn: "bcdfghjklmnpqrstuvwxyz")
         
@@ -231,6 +231,20 @@ class StringsViewModel: ObservableObject {
             }
         }
         return (vowelsCount, consonantsCount)
+    }
+    
+    func vowelsAndConsonantsWithCharacterSet(input: String) -> (vowels: Int, consonant: Int) {
+        //"vow&ConsonWithForLoop: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))", output = misp
+        let vowels = "aeiou"
+        let consonants = "bcdfghjklmnpqrstvwxyz"
+        
+        let custVowelsSet = CharacterSet(charactersIn: vowels)
+        let custConsonantsSet = CharacterSet(charactersIn: consonants)
+
+        let filteredForVowels = input.lowercased().components(separatedBy: custVowelsSet).joined()
+        let filteredForConsonants = input.lowercased().components(separatedBy: custConsonantsSet).joined()
+        
+        return (vowels: filteredForConsonants.count, consonant: filteredForVowels.count)
     }
     
     func threeDifferentLetters(strOne: String, strTwo: String) -> Bool { //MARK: 1st check letter count of strings, then letter differences based on index
@@ -338,6 +352,12 @@ class StringsViewModel: ObservableObject {
     func reverse(_ str: String) -> String {
         return String(str.reversed())
     }
+    
+
+    
+    /*
+     "vow&ConsonWithForLoop: \(vm.vowelsAndConsonantsWithForLoop(input: "Mississippi"))",
+     */
 
 }
 
