@@ -15,7 +15,7 @@
 		6B28694E2BB1E3CA00CD4936 /* SwiftChallengesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B28694D2BB1E3CA00CD4936 /* SwiftChallengesUITestsLaunchTests.swift */; };
 		6B28695B2BB1E46100CD4936 /* StringsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B28695A2BB1E46100CD4936 /* StringsView.swift */; };
 		6B28695D2BB1E5A300CD4936 /* StringsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B28695C2BB1E5A300CD4936 /* StringsViewTests.swift */; };
-		6B77D0882C99FCE90050D17F /* LeetChallenges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B77D0872C99FCE90050D17F /* LeetChallenges.swift */; };
+		6B77D0882C99FCE90050D17F /* LeetChallengesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B77D0872C99FCE90050D17F /* LeetChallengesView.swift */; };
 		6BE627FF2C496DCE00D438D9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6BE627FE2C496DCE00D438D9 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +48,7 @@
 		6B28694D2BB1E3CA00CD4936 /* SwiftChallengesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftChallengesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6B28695A2BB1E46100CD4936 /* StringsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsView.swift; sourceTree = "<group>"; };
 		6B28695C2BB1E5A300CD4936 /* StringsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsViewTests.swift; sourceTree = "<group>"; };
-		6B77D0872C99FCE90050D17F /* LeetChallenges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetChallenges.swift; sourceTree = "<group>"; };
+		6B77D0872C99FCE90050D17F /* LeetChallengesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetChallengesView.swift; sourceTree = "<group>"; };
 		6BE627FE2C496DCE00D438D9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,7 +104,7 @@
 				6B2869302BB1E3C800CD4936 /* SwiftChallengesApp.swift */,
 				6B2869322BB1E3C800CD4936 /* ContentView.swift */,
 				6B28695A2BB1E46100CD4936 /* StringsView.swift */,
-				6B77D0872C99FCE90050D17F /* LeetChallenges.swift */,
+				6B77D0872C99FCE90050D17F /* LeetChallengesView.swift */,
 				6B2869342BB1E3CA00CD4936 /* Assets.xcassets */,
 				6B2869362BB1E3CA00CD4936 /* Preview Content */,
 			);
@@ -270,7 +270,7 @@
 				6B2869332BB1E3C800CD4936 /* ContentView.swift in Sources */,
 				6B2869312BB1E3C800CD4936 /* SwiftChallengesApp.swift in Sources */,
 				6B28695B2BB1E46100CD4936 /* StringsView.swift in Sources */,
-				6B77D0882C99FCE90050D17F /* LeetChallenges.swift in Sources */,
+				6B77D0882C99FCE90050D17F /* LeetChallengesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
