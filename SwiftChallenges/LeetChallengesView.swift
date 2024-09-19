@@ -36,14 +36,14 @@ struct LeetChallengesView: View {
     private func tasks() -> [String] {
         return [
             "TwoSum \n Inp: nums = [2,7,11], target = 9. Out: [0,1] \n \(vm.twoSum([2,7,11], 9))",
-        
+            
         ]
     }
 }
 
 class LeetChallengesViewModel: ObservableObject {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-            return [2,7]
+        return [2,7]
     }
 }
 
