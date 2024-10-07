@@ -35,7 +35,7 @@ struct LeetChallengesView: View {
     
     private func tasks() -> [String] {
         return [
-            "TwoSum. Output: \(vm.twoSum([2,11,15,7], 9))",
+            "TwoSum. Output: \(vm.twoSum([2,7,11,15], 9))",
             
         ]
     }
