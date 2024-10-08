@@ -36,6 +36,7 @@ struct LeetChallengesView: View {
     private func tasks() -> [String] {
         return [
             "TwoSum. Output: \(vm.twoSum([2,7,11,15], 9))",
+            "isPalindrome. OutPut: \(vm.isPalindrome(121))"
             
         ]
     }
@@ -53,6 +54,10 @@ class LeetChallengesViewModel: ObservableObject {
             numDict[num] = numIndex
         }
         return []
+    }
+    
+    func isPalindrome(_ x: Int) -> Bool {
+        return String(x) == String(String(x).reversed())
     }
 }
 
