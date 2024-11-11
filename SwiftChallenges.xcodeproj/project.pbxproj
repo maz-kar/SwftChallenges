@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6B2869312BB1E3C800CD4936 /* SwiftChallengesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2869302BB1E3C800CD4936 /* SwiftChallengesApp.swift */; };
-		6B2869332BB1E3C800CD4936 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2869322BB1E3C800CD4936 /* ContentView.swift */; };
 		6B2869352BB1E3CA00CD4936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B2869342BB1E3CA00CD4936 /* Assets.xcassets */; };
 		6B2869382BB1E3CA00CD4936 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B2869372BB1E3CA00CD4936 /* Preview Assets.xcassets */; };
 		6B28694C2BB1E3CA00CD4936 /* SwiftChallengesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B28694B2BB1E3CA00CD4936 /* SwiftChallengesUITests.swift */; };
@@ -39,7 +38,6 @@
 /* Begin PBXFileReference section */
 		6B28692D2BB1E3C800CD4936 /* SwiftChallenges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftChallenges.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B2869302BB1E3C800CD4936 /* SwiftChallengesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftChallengesApp.swift; sourceTree = "<group>"; };
-		6B2869322BB1E3C800CD4936 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6B2869342BB1E3CA00CD4936 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B2869372BB1E3CA00CD4936 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6B28693D2BB1E3CA00CD4936 /* SwiftChallengesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftChallengesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				6B2869302BB1E3C800CD4936 /* SwiftChallengesApp.swift */,
-				6B2869322BB1E3C800CD4936 /* ContentView.swift */,
 				6B28695A2BB1E46100CD4936 /* StringsView.swift */,
 				6B77D0872C99FCE90050D17F /* LeetChallengesView.swift */,
 				6B2869342BB1E3CA00CD4936 /* Assets.xcassets */,
@@ -267,7 +264,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B2869332BB1E3C800CD4936 /* ContentView.swift in Sources */,
 				6B2869312BB1E3C800CD4936 /* SwiftChallengesApp.swift in Sources */,
 				6B28695B2BB1E46100CD4936 /* StringsView.swift in Sources */,
 				6B77D0882C99FCE90050D17F /* LeetChallengesView.swift in Sources */,
@@ -434,7 +430,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftChallenges/Preview Content\"";
-				DEVELOPMENT_TEAM = 3LU756Z7J5;
+				DEVELOPMENT_TEAM = X89D4M734T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SwiftChallenges;
@@ -464,7 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftChallenges/Preview Content\"";
-				DEVELOPMENT_TEAM = 3LU756Z7J5;
+				DEVELOPMENT_TEAM = X89D4M734T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SwiftChallenges;

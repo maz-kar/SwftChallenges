@@ -4,9 +4,9 @@
 A self-educational iOS app to practice Swift.
 
 ## TODO
-on 09.10.24: https://leetcode.com/problems/palindrome-number/description/
+Start with: https://leetcode.com/problemset/?difficulty=EASY&page=1
 
 ## Researches
-- Work more with replacingOccurance & reduce api
+- 
 
 
