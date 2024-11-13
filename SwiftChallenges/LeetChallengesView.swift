@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LeetChallengesView: View {
-    @StateObject private var vm = LeetChallengesViewModel()
+    @ObservedObject private var vm = LeetChallengesViewModel()
     
     var body: some View {
         NavigationStack {
@@ -17,7 +17,6 @@ struct LeetChallengesView: View {
                     VStack(spacing: 15) {
                         ForEach(tasks(), id: \.self) { task in
                             Text(task)
-                                .padding([.top, .bottom], 1)
                         }
                         .lineLimit(3)
                         .minimumScaleFactor(0.5)
