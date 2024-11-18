@@ -34,29 +34,22 @@ struct LeetChallengesView: View {
     
     private func tasks() -> [String] {
         return [
-            "TwoSum. Output: \(vm.twoSum([2,7,11,15], 9))",
-            "isPalindrome. OutPut: \(vm.isPalindrome(121))"
-            
+            "highestScore. Output: \(vm.highestScore(of: ["Alice": 85, "Bob": 92, "Charlie": 92, "Diana": 88]))",
         ]
     }
 }
 
 class LeetChallengesViewModel: ObservableObject {
-    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        var numDict = [Int:Int]()
+    func highestScore(of students: [String:Int]) -> [String] {
+        var result: [String] = []
+        guard let maxVal = students.values.max() else { return result}
         
-        for(numIndex,num) in nums.enumerated() {
-            let complement = target - num
-            if let complementIndex = numDict[complement] {
-                return [complementIndex, numIndex]
+        for (key, value) in students {
+            if value == maxVal {
+                result.append(key)
             }
-            numDict[num] = numIndex
         }
-        return []
-    }
-    
-    func isPalindrome(_ x: Int) -> Bool {
-        return String(x) == String(String(x).reversed())
+        return result
     }
 }
 
